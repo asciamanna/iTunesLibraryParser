@@ -1,0 +1,3 @@
+Linq-To-xml iTunesLibrary parser.  This approach loads all data into memory so this would not be ideal for very large iTunesLibraries.
+Anthony Sciamanna
+asciamanna@gmail.com
