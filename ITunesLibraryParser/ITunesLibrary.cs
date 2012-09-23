@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace ITunesLibraryParser {
   public static class ITunesLibrary {
@@ -14,67 +15,56 @@ namespace ITunesLibraryParser {
           TrackId = Int32.Parse((from key in track.Descendants("key")
                                  where key.Value == "Track ID"
                                  select (key.NextNode as XElement).Value).FirstOrDefault()),
-          Name = (from key in track.Descendants("key")
-                  where key.Value == "Name"
-                  select (key.NextNode as XElement).Value).FirstOrDefault(),
-          Artist = (from key in track.Descendants("key")
-                    where key.Value == "Artist"
-                    select (key.NextNode as XElement).Value).FirstOrDefault(),
-          AlbumArtist = (from key in track.Descendants("key")
-                         where key.Value == "Album Artist"
-                         select (key.NextNode as XElement).Value).FirstOrDefault(),
-          Composer = (from key in track.Descendants("key")
-                      where key.Value == "Composer"
-                      select (key.NextNode as XElement).Value).FirstOrDefault(),
-          Album = (from key in track.Descendants("key")
-                   where key.Value == "Album"
-                   select (key.NextNode as XElement).Value).FirstOrDefault(),
-          Genre = (from key in track.Descendants("key")
-                   where key.Value == "Genre"
-                   select (key.NextNode as XElement).Value).FirstOrDefault(),
-          Kind = (from key in track.Descendants("key")
-                  where key.Value == "Kind"
-                  select (key.NextNode as XElement).Value).FirstOrDefault(),
-          //Size = Int64.Parse((from key in track.Descendants("key")
-          //        where key.Value == "Size"
-          //        select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //TotalTime = Int64.Parse((from key in track.Descendants("key")
-          //              where key.Value == "Total Time"
-          //        select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //TrackNumber = Int32.Parse((from key in track.Descendants("key")
-          //                where key.Value == "Track Number"
-          //                select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //Year = Int32.Parse((from key in track.Descendants("key")
-          //        where key.Value == "Year"
-          //        select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //DateModified = DateTime.Parse((from key in track.Descendants("key")
-          //                where key.Value == "Date Modified"
-          //                select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //DateAdded = DateTime.Parse((from key in track.Descendants("key")
-          //              where key.Value == "Date Added" 
-          //              select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //BitRate = Int32.Parse((from key in track.Descendants("key")
-          //            where key.Value == "Bit Rate"
-          //            select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //SampleRate = Int32.Parse((from key in track.Descendants("key")
-          //              where key.Value == "Sample Rate"
-          //              select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //PlayDate = Int64.Parse((from key in track.Descendants("key")
-          //              where key.Value == "Play Date"
-          //              select (key.NextNode as XElement).Value).FirstOrDefault()),
-          //PlayDateUTC = DateTime.Parse((from key in track.Descendants("key")
-                          //where key.Value == "Play Date UTC"
-                          //select (key.NextNode as XElement).Value).FirstOrDefault())
-          //PlayCount = Int32.Parse((from key in track.Descendants("key")
-          //              where key.Value == "Play Count"
-          //              select (key.NextNode as XElement).Value).FirstOrDefault())
-
+          Name = ParseStringValue(track, "Name"),
+          Artist = ParseStringValue(track, "Artist"),
+          AlbumArtist = ParseStringValue(track, "AlbumArtist"),
+          Composer = ParseStringValue(track, "Composer"),
+          Album = ParseStringValue(track, "Album"),
+          Genre = ParseStringValue(track, "Genre"),
+          Kind = ParseStringValue(track, "Kind"),
+          Size = ParseLongValue(track, "Size"),
+          TotalTime = ParseLongValue(track, "Total Time"),
+          TrackNumber = ParseIntValue(track, "Track Number"),
+          Year = ParseIntValue(track, "Year"),
+          DateModified = ParseDateValue(track, "Date Modified"),
+          DateAdded = ParseDateValue(track, "Date Added"),
+          BitRate = ParseIntValue(track, "Bit Rate"),
+          SampleRate = ParseIntValue(track, "Sample Rate"),
+          PlayDate = ConvertLongToDate(ParseLongValue(track, "Play Date")),
+          PlayDateUTC = ParseDateValue(track, "Play Date UTC"),
+          PlayCount = ParseIntValue(track, "Play Count")
         });
       }
       for (int i = 0; i < 10; i++) {
         Console.WriteLine(tracks[i].ToString());
       }
       return tracks;
+    }
+
+    static DateTime? ConvertLongToDate(long? ticks) {
+      return ticks.HasValue ? new DateTime(ticks.Value) : (DateTime?)null;
+    }
+
+    static long? ParseLongValue(XElement track, string keyValue) {
+      var stringValue = ParseStringValue(track, keyValue);
+      return String.IsNullOrEmpty(stringValue) ? (long?)null : Int64.Parse(stringValue);
+    }
+
+    static int? ParseIntValue(XElement track, string keyValue) {
+      var stringValue = ParseStringValue(track, keyValue);
+      return String.IsNullOrEmpty(stringValue) ? (int?)null : Int32.Parse(stringValue);
+    }
+
+    static DateTime? ParseDateValue(XElement track, string keyValue) {
+      var stringValue = ParseStringValue(track, keyValue);
+      //DateTime.ParseExact(keyValue, "yyyy-MM-ddTHH:mm:ssz", CultureInfo.InvariantCulture);
+      return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.Parse(stringValue, CultureInfo.InvariantCulture);
+    }
+
+    static string ParseStringValue(XElement track, string keyValue) {
+      return (from key in track.Descendants("key")
+              where key.Value == keyValue
+              select (key.NextNode as XElement).Value).FirstOrDefault();
     }
   }
 }
