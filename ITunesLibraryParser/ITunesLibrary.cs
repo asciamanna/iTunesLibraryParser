@@ -9,12 +9,12 @@ namespace ITunesLibraryParser {
   public static class ITunesLibrary {
     public static IEnumerable<Track> Parse(string fileLocation) {
       var tracks = new List<Track>();
-      var trackElements = XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict");
+      var trackElements = from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
+                          where x.Descendants("key").Count() > 1
+                          select x;
       foreach (var track in trackElements) {
         tracks.Add(new Track {
-          TrackId = Int32.Parse((from key in track.Descendants("key")
-                                 where key.Value == "Track ID"
-                                 select (key.NextNode as XElement).Value).FirstOrDefault()),
+          TrackId = Int32.Parse(ParseStringValue(track, "Track ID")),
           Name = ParseStringValue(track, "Name"),
           Artist = ParseStringValue(track, "Artist"),
           AlbumArtist = ParseStringValue(track, "AlbumArtist"),
@@ -24,19 +24,15 @@ namespace ITunesLibraryParser {
           Kind = ParseStringValue(track, "Kind"),
           Size = ParseLongValue(track, "Size"),
           TotalTime = ParseLongValue(track, "Total Time"),
-          TrackNumber = ParseIntValue(track, "Track Number"),
-          Year = ParseIntValue(track, "Year"),
-          DateModified = ParseDateValue(track, "Date Modified"),
-          DateAdded = ParseDateValue(track, "Date Added"),
-          BitRate = ParseIntValue(track, "Bit Rate"),
-          SampleRate = ParseIntValue(track, "Sample Rate"),
-          PlayDate = ConvertLongToDate(ParseLongValue(track, "Play Date")),
-          PlayDateUTC = ParseDateValue(track, "Play Date UTC"),
-          PlayCount = ParseIntValue(track, "Play Count")
+          TrackNumber = ParseNullableIntValue(track, "Track Number"),
+          Year = ParseNullableIntValue(track, "Year"),
+          DateModified = ParseNullableDateValue(track, "Date Modified"),
+          DateAdded = ParseNullableDateValue(track, "Date Added"),
+          BitRate = ParseNullableIntValue(track, "Bit Rate"),
+          SampleRate = ParseNullableIntValue(track, "Sample Rate"),
+          PlayDate = ParseNullableDateValue(track, "Play Date UTC"),
+          PlayCount = ParseNullableIntValue(track, "Play Count")
         });
-      }
-      for (int i = 0; i < 10; i++) {
-        Console.WriteLine(tracks[i].ToString());
       }
       return tracks;
     }
@@ -45,20 +41,25 @@ namespace ITunesLibraryParser {
       return ticks.HasValue ? new DateTime(ticks.Value) : (DateTime?)null;
     }
 
-    static long? ParseLongValue(XElement track, string keyValue) {
+    static long? ParseNullableLongValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return String.IsNullOrEmpty(stringValue) ? (long?)null : Int64.Parse(stringValue);
     }
 
-    static int? ParseIntValue(XElement track, string keyValue) {
+    static long ParseLongValue(XElement track, string keyValue) {
+      var stringValue = ParseStringValue(track, keyValue);
+      return Int64.Parse(stringValue);
+    }
+
+    static int? ParseNullableIntValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return String.IsNullOrEmpty(stringValue) ? (int?)null : Int32.Parse(stringValue);
     }
 
-    static DateTime? ParseDateValue(XElement track, string keyValue) {
+    static DateTime? ParseNullableDateValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       //DateTime.ParseExact(keyValue, "yyyy-MM-ddTHH:mm:ssz", CultureInfo.InvariantCulture);
-      return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.Parse(stringValue, CultureInfo.InvariantCulture);
+      return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
     }
 
     static string ParseStringValue(XElement track, string keyValue) {

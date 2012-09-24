@@ -54,7 +54,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="iTunesMusicLibrary.xml">
+    <Content Include="sampleiTunesLibrary.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

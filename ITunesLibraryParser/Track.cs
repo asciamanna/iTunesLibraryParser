@@ -13,8 +13,8 @@ namespace ITunesLibraryParser {
     public string Album { get; set; }
     public string Genre { get; set; }
     public string Kind { get; set; }
-    public long? Size { get; set; }
-    public long? TotalTime { get; set; }
+    public long Size { get; set; }
+    public long TotalTime { get; set; }
     public int? TrackNumber { get; set; }
     public int? Year { get; set; }
     public DateTime? DateModified { get; set; }
@@ -23,7 +23,6 @@ namespace ITunesLibraryParser {
     public int? SampleRate { get; set; }
     public int? PlayCount { get; set; }
     public DateTime? PlayDate { get; set; }
-    public DateTime? PlayDateUTC { get; set; }
 
     public override string ToString() {
       return string.Format("Artist: {0} - Track: {1} - Album: {2}", Artist, Name, Album);
