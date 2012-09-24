@@ -37,13 +37,10 @@ namespace ITunesLibraryParser {
       return tracks;
     }
 
-    static DateTime? ConvertLongToDate(long? ticks) {
-      return ticks.HasValue ? new DateTime(ticks.Value) : (DateTime?)null;
-    }
-
-    static long? ParseNullableLongValue(XElement track, string keyValue) {
-      var stringValue = ParseStringValue(track, keyValue);
-      return String.IsNullOrEmpty(stringValue) ? (long?)null : Int64.Parse(stringValue);
+    static string ParseStringValue(XElement track, string keyValue) {
+      return (from key in track.Descendants("key")
+              where key.Value == keyValue
+              select (key.NextNode as XElement).Value).FirstOrDefault();
     }
 
     static long ParseLongValue(XElement track, string keyValue) {
@@ -60,12 +57,6 @@ namespace ITunesLibraryParser {
       var stringValue = ParseStringValue(track, keyValue);
       //DateTime.ParseExact(keyValue, "yyyy-MM-ddTHH:mm:ssz", CultureInfo.InvariantCulture);
       return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
-    }
-
-    static string ParseStringValue(XElement track, string keyValue) {
-      return (from key in track.Descendants("key")
-              where key.Value == keyValue
-              select (key.NextNode as XElement).Value).FirstOrDefault();
     }
   }
 }
