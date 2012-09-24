@@ -55,7 +55,6 @@ namespace ITunesLibraryParser {
 
     static DateTime? ParseNullableDateValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
-      //DateTime.ParseExact(keyValue, "yyyy-MM-ddTHH:mm:ssz", CultureInfo.InvariantCulture);
       return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
     }
   }
