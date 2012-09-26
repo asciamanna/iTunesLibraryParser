@@ -10,7 +10,7 @@ namespace ITunesLibraryParserTests {
   public class ITunesLibraryTest {
     [Test]
     public void Parse() {
-      var tracks = ITunesLibrary.Parse(@".\sampleiTunesLibrary.xml");
+      var tracks = new ITunesLibrary().Parse(@".\sampleiTunesLibrary.xml");
       Assert.AreEqual(25, tracks.Count());
       var track = tracks.First();
       Assert.AreEqual(17714, track.TrackId);
@@ -34,7 +34,7 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
-      var firstTrack = ITunesLibrary.Parse(@".\SampleiTunesLibrary.xml").First();
+      var firstTrack = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml").First();
       Assert.IsTrue(String.IsNullOrEmpty(firstTrack.AlbumArtist));
     }
   }

@@ -6,8 +6,12 @@ using System.Xml.Linq;
 using System.Globalization;
 
 namespace ITunesLibraryParser {
-  public static class ITunesLibrary {
-    public static IEnumerable<Track> Parse(string fileLocation) {
+  public interface IITunesLibrary {
+    IEnumerable<Track> Parse(string xmlFileLocation);
+  }
+
+  public class ITunesLibrary : IITunesLibrary {
+    public IEnumerable<Track> Parse(string fileLocation) {
       var tracks = new List<Track>();
       var trackElements = from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
                           where x.Descendants("key").Count() > 1
@@ -37,23 +41,23 @@ namespace ITunesLibraryParser {
       return tracks;
     }
 
-    static string ParseStringValue(XElement track, string keyValue) {
+    string ParseStringValue(XElement track, string keyValue) {
       return (from key in track.Descendants("key")
               where key.Value == keyValue
               select (key.NextNode as XElement).Value).FirstOrDefault();
     }
 
-    static long ParseLongValue(XElement track, string keyValue) {
+    long ParseLongValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return Int64.Parse(stringValue);
     }
 
-    static int? ParseNullableIntValue(XElement track, string keyValue) {
+    int? ParseNullableIntValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return String.IsNullOrEmpty(stringValue) ? (int?)null : Int32.Parse(stringValue);
     }
 
-    static DateTime? ParseNullableDateValue(XElement track, string keyValue) {
+    DateTime? ParseNullableDateValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
     }
