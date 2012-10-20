@@ -40,7 +40,7 @@ namespace ITunesLibraryParserTests {
     }
 
     [Test]
-    public void Parse_populates_false_for_nonexistent_boolean_nodes() {
+    public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
       var tracks = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml");
       Assert.AreEqual(2, tracks.Count(t => t.PartOfCompilation));
     }
