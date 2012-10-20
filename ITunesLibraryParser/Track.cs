@@ -23,6 +23,7 @@ namespace ITunesLibraryParser {
     public int? SampleRate { get; set; }
     public int? PlayCount { get; set; }
     public DateTime? PlayDate { get; set; }
+    public bool PartOfCompilation { get; set; }
 
     public override string ToString() {
       return string.Format("Artist: {0} - Track: {1} - Album: {2}", Artist, Name, Album);

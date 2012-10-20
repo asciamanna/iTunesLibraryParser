@@ -35,10 +35,17 @@ namespace ITunesLibraryParser {
           BitRate = ParseNullableIntValue(track, "Bit Rate"),
           SampleRate = ParseNullableIntValue(track, "Sample Rate"),
           PlayDate = ParseNullableDateValue(track, "Play Date UTC"),
-          PlayCount = ParseNullableIntValue(track, "Play Count")
+          PlayCount = ParseNullableIntValue(track, "Play Count"),
+          PartOfCompilation = ParseBoolean(track, "Compilation"),
         });
       }
       return tracks;
+    }
+
+    bool ParseBoolean(XElement track, string keyValue) {
+      return (from keyNode in track.Descendants("key")
+              where keyNode.Value == keyValue
+              select (keyNode.NextNode as XElement).Name).FirstOrDefault() == "true";
     }
 
     string ParseStringValue(XElement track, string keyValue) {

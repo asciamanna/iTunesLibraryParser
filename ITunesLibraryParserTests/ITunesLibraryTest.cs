@@ -30,12 +30,19 @@ namespace ITunesLibraryParserTests {
       Assert.AreEqual(44100, track.SampleRate);
       Assert.AreEqual(11, track.PlayCount);
       Assert.AreEqual(new DateTime(2012, 8, 15), track.PlayDate.Value.Date);
+      Assert.IsTrue(track.PartOfCompilation);
     }
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
       var firstTrack = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml").First();
       Assert.IsTrue(String.IsNullOrEmpty(firstTrack.AlbumArtist));
+    }
+
+    [Test]
+    public void Parse_populates_false_for_nonexistent_boolean_nodes() {
+      var tracks = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml");
+      Assert.AreEqual(2, tracks.Count(t => t.PartOfCompilation));
     }
   }
 }
