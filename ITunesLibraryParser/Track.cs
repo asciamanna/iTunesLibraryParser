@@ -28,6 +28,10 @@ namespace ITunesLibraryParser {
     public override string ToString() {
       return string.Format("Artist: {0} - Track: {1} - Album: {2}", Artist, Name, Album);
     }
+
+    public Track Copy() {
+     return this.MemberwiseClone() as Track;
+    }
   }
 
 }
