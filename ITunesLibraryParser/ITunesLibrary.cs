@@ -27,7 +27,7 @@ namespace ITunesLibraryParser {
           Genre = ParseStringValue(track, "Genre"),
           Kind = ParseStringValue(track, "Kind"),
           Size = ParseLongValue(track, "Size"),
-          TotalTime = ParseLongValue(track, "Total Time"),
+          PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((ParseLongValue(track, "Total Time"))),
           TrackNumber = ParseNullableIntValue(track, "Track Number"),
           Year = ParseNullableIntValue(track, "Year"),
           DateModified = ParseNullableDateValue(track, "Date Modified"),
@@ -67,6 +67,14 @@ namespace ITunesLibraryParser {
     DateTime? ParseNullableDateValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
       return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
+    }
+
+    static string ConvertMillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
+      var totalSeconds = Math.Round(TimeSpan.FromMilliseconds(milliseconds).TotalSeconds);
+      var minutes = (int)(totalSeconds / 60);
+      var seconds = (int)(totalSeconds - (minutes * 60));
+      var timespan = new TimeSpan(0, minutes, seconds);
+      return timespan.ToString("m\\:ss");
     }
   }
 }

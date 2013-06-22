@@ -8,9 +8,14 @@ using ITunesLibraryParser;
 namespace ITunesLibraryParserTests {
   [TestFixture]
   public class ITunesLibraryTest {
+    IEnumerable<Track> tracks;
+    [SetUp]
+    public void Setup() {
+      tracks = new ITunesLibrary().Parse(@".\sampleiTunesLibrary.xml");
+    }
+
     [Test]
     public void Parse() {
-      var tracks = new ITunesLibrary().Parse(@".\sampleiTunesLibrary.xml");
       Assert.AreEqual(25, tracks.Count());
       var track = tracks.First();
       Assert.AreEqual(17714, track.TrackId);
@@ -21,7 +26,6 @@ namespace ITunesLibraryParserTests {
       Assert.AreEqual("Jazz", track.Genre);
       Assert.AreEqual("AAC audio file", track.Kind);
       Assert.AreEqual(11550486, track.Size);
-      Assert.AreEqual(274906, track.TotalTime);
       Assert.AreEqual(3, track.TrackNumber);
       Assert.AreEqual(1962, track.Year);
       Assert.AreEqual(new DateTime(2012, 2, 25), track.DateModified.Value.Date);
@@ -35,14 +39,19 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
-      var firstTrack = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml").First();
+      var firstTrack = tracks.First();
       Assert.IsTrue(String.IsNullOrEmpty(firstTrack.AlbumArtist));
     }
 
     [Test]
     public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
-      var tracks = new ITunesLibrary().Parse(@".\SampleiTunesLibrary.xml");
       Assert.AreEqual(2, tracks.Count(t => t.PartOfCompilation));
+    }
+
+    [Test]
+    public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
+      var track = tracks.First();
+      Assert.AreEqual("4:35", track.PlayingTime);
     }
   }
 }
