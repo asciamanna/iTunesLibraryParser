@@ -9,7 +9,7 @@ The iTunesLibrary Parser is implemented in C# using LINQ-To-XML.
 It currently only parses iTunes Library Track information. Given the location of the iTunesMusicLibrary.xml file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). It then returns a collection of C# track objects.
 
 ##Usage
-This approach stores all of the data in memory so it would not be recommended for huge libraries. I have tested in on a library consisting of 9500 tracks and it performs well.
+This approach stores all of the data in memory so it would not be recommended for huge libraries. I have tested it on an iTunes library consisting of 9500 tracks and it performs well.
 
 ##Coming Soon
 The ability to parse playlist information.
