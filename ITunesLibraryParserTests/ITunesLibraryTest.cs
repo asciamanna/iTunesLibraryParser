@@ -9,6 +9,7 @@ namespace ITunesLibraryParserTests {
   [TestFixture]
   public class ITunesLibraryTest {
     IEnumerable<Track> tracks;
+   
     [SetUp]
     public void Setup() {
       tracks = new ITunesLibrary().Parse(@".\sampleiTunesLibrary.xml");
@@ -16,42 +17,43 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse() {
-      Assert.AreEqual(25, tracks.Count());
+      Assert.That(tracks.Count(), Is.EqualTo(25));
+
       var track = tracks.First();
-      Assert.AreEqual(17714, track.TrackId);
-      Assert.AreEqual("Dream Gypsy", track.Name);
-      Assert.AreEqual("Bill Evans & Jim Hall", track.Artist);
-      Assert.AreEqual("Judith Veevers", track.Composer);
-      Assert.AreEqual("Undercurrent", track.Album);
-      Assert.AreEqual("Jazz", track.Genre);
-      Assert.AreEqual("AAC audio file", track.Kind);
-      Assert.AreEqual(11550486, track.Size);
-      Assert.AreEqual(3, track.TrackNumber);
-      Assert.AreEqual(1962, track.Year);
-      Assert.AreEqual(new DateTime(2012, 2, 25), track.DateModified.Value.Date);
-      Assert.AreEqual(new DateTime(2012, 2, 25), track.DateAdded.Value.Date);
-      Assert.AreEqual(320, track.BitRate);
-      Assert.AreEqual(44100, track.SampleRate);
-      Assert.AreEqual(11, track.PlayCount);
-      Assert.AreEqual(new DateTime(2012, 8, 15), track.PlayDate.Value.Date);
-      Assert.IsTrue(track.PartOfCompilation);
+      Assert.That(track.TrackId, Is.EqualTo(17714));
+      Assert.That(track.Name, Is.EqualTo("Dream Gypsy"));
+      Assert.That(track.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
+      Assert.That(track.Composer, Is.EqualTo("Judith Veevers"));
+      Assert.That(track.Album, Is.EqualTo("Undercurrent"));
+      Assert.That(track.Genre, Is.EqualTo("Jazz"));
+      Assert.That(track.Kind, Is.EqualTo("AAC audio file"));
+      Assert.That(track.Size, Is.EqualTo(11550486));
+      Assert.That(track.TrackNumber, Is.EqualTo(3));
+      Assert.That(track.Year, Is.EqualTo(1962));
+      Assert.That(track.DateModified.Value.Date, Is.EqualTo(new DateTime(2012, 2, 25)));
+      Assert.That(track.DateAdded.Value.Date, Is.EqualTo(new DateTime(2012, 2, 25)));
+      Assert.That(track.BitRate, Is.EqualTo(320));
+      Assert.That(track.SampleRate, Is.EqualTo(44100));
+      Assert.That(track.PlayCount, Is.EqualTo(11));
+      Assert.That(track.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 15)));
+      Assert.That(track.PartOfCompilation, Is.True);
     }
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
       var firstTrack = tracks.First();
-      Assert.IsTrue(String.IsNullOrEmpty(firstTrack.AlbumArtist));
+      Assert.That(String.IsNullOrEmpty(firstTrack.AlbumArtist));
     }
 
     [Test]
     public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
-      Assert.AreEqual(2, tracks.Count(t => t.PartOfCompilation));
+      Assert.That(tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
     }
 
     [Test]
     public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
       var track = tracks.First();
-      Assert.AreEqual("4:35", track.PlayingTime);
+      Assert.That(track.PlayingTime, Is.EqualTo("4:35"));
     }
   }
 }
