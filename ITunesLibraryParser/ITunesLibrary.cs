@@ -12,34 +12,44 @@ namespace ITunesLibraryParser {
 
   public class ITunesLibrary : IITunesLibrary {
     public IEnumerable<Track> Parse(string fileLocation) {
+      var trackElements = LoadTrackElements(fileLocation);
       var tracks = new List<Track>();
+      
+      foreach (var trackElement in trackElements) {
+        tracks.Add(CreateTrack(trackElement));
+      }
+      return tracks;
+    }
+
+    private static IEnumerable<XElement> LoadTrackElements(string fileLocation) {
       var trackElements = from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
                           where x.Descendants("key").Count() > 1
                           select x;
-      foreach (var track in trackElements) {
-        tracks.Add(new Track {
-          TrackId = Int32.Parse(ParseStringValue(track, "Track ID")),
-          Name = ParseStringValue(track, "Name"),
-          Artist = ParseStringValue(track, "Artist"),
-          AlbumArtist = ParseStringValue(track, "AlbumArtist"),
-          Composer = ParseStringValue(track, "Composer"),
-          Album = ParseStringValue(track, "Album"),
-          Genre = ParseStringValue(track, "Genre"),
-          Kind = ParseStringValue(track, "Kind"),
-          Size = ParseLongValue(track, "Size"),
-          PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((ParseLongValue(track, "Total Time"))),
-          TrackNumber = ParseNullableIntValue(track, "Track Number"),
-          Year = ParseNullableIntValue(track, "Year"),
-          DateModified = ParseNullableDateValue(track, "Date Modified"),
-          DateAdded = ParseNullableDateValue(track, "Date Added"),
-          BitRate = ParseNullableIntValue(track, "Bit Rate"),
-          SampleRate = ParseNullableIntValue(track, "Sample Rate"),
-          PlayDate = ParseNullableDateValue(track, "Play Date UTC"),
-          PlayCount = ParseNullableIntValue(track, "Play Count"),
-          PartOfCompilation = ParseBoolean(track, "Compilation"),
-        });
-      }
-      return tracks;
+      return trackElements;
+    }
+
+    private Track CreateTrack(XElement trackElement) {
+      return new Track {
+        TrackId = Int32.Parse(ParseStringValue(trackElement, "Track ID")),
+        Name = ParseStringValue(trackElement, "Name"),
+        Artist = ParseStringValue(trackElement, "Artist"),
+        AlbumArtist = ParseStringValue(trackElement, "AlbumArtist"),
+        Composer = ParseStringValue(trackElement, "Composer"),
+        Album = ParseStringValue(trackElement, "Album"),
+        Genre = ParseStringValue(trackElement, "Genre"),
+        Kind = ParseStringValue(trackElement, "Kind"),
+        Size = ParseLongValue(trackElement, "Size"),
+        PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((ParseLongValue(trackElement, "Total Time"))),
+        TrackNumber = ParseNullableIntValue(trackElement, "Track Number"),
+        Year = ParseNullableIntValue(trackElement, "Year"),
+        DateModified = ParseNullableDateValue(trackElement, "Date Modified"),
+        DateAdded = ParseNullableDateValue(trackElement, "Date Added"),
+        BitRate = ParseNullableIntValue(trackElement, "Bit Rate"),
+        SampleRate = ParseNullableIntValue(trackElement, "Sample Rate"),
+        PlayDate = ParseNullableDateValue(trackElement, "Play Date UTC"),
+        PlayCount = ParseNullableIntValue(trackElement, "Play Count"),
+        PartOfCompilation = ParseBoolean(trackElement, "Compilation"),
+      };
     }
 
     bool ParseBoolean(XElement track, string keyValue) {
