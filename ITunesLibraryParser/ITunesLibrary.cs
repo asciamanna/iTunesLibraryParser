@@ -13,19 +13,13 @@ namespace ITunesLibraryParser {
   public class ITunesLibrary : IITunesLibrary {
     public IEnumerable<Track> Parse(string fileLocation) {
       var trackElements = LoadTrackElements(fileLocation);
-      var tracks = new List<Track>();
-      
-      foreach (var trackElement in trackElements) {
-        tracks.Add(CreateTrack(trackElement));
-      }
-      return tracks;
+      return trackElements.Select(te => CreateTrack(te));
     }
 
     private static IEnumerable<XElement> LoadTrackElements(string fileLocation) {
-      var trackElements = from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
+      return from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
                           where x.Descendants("key").Count() > 1
                           select x;
-      return trackElements;
     }
 
     private Track CreateTrack(XElement trackElement) {
