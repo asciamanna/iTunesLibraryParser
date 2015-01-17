@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
 using System.Globalization;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
   public interface IITunesLibrary {
@@ -13,7 +12,7 @@ namespace ITunesLibraryParser {
   public class ITunesLibrary : IITunesLibrary {
     public IEnumerable<Track> Parse(string fileLocation) {
       var trackElements = LoadTrackElements(fileLocation);
-      return trackElements.Select(te => CreateTrack(te));
+      return trackElements.Select(CreateTrack);
     }
 
     private static IEnumerable<XElement> LoadTrackElements(string fileLocation) {

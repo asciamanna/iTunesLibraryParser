@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ITunesLibraryParser;
 using NUnit.Framework;
 
@@ -17,7 +13,7 @@ namespace ITunesLibraryParserTests {
     }
 
     [Test]
-    public void ToString() {
+    public void ToString_Track() {
       Assert.That(track.ToString(), Is.EqualTo(string.Format("Artist: {0} - Track: {1} - Album: {2}", track.Artist, track.Name, track.Album)));
     }
 
