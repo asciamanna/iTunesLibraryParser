@@ -1,21 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using ITunesLibraryParser;
 using NUnit.Framework;
 
 namespace ITunesLibraryParserTests {
   [TestFixture]
-  public class ITunesLibraryTest {
-    IEnumerable<Track> tracks;
-   
+  public class ITunesLibraryTest
+  {
+    private ITunesLibrary library;
+    private const string filepath = @".\sampleiTunesLibrary.xml";
+
     [SetUp]
     public void Setup() {
-      tracks = new ITunesLibrary().Parse(@".\sampleiTunesLibrary.xml");
+      library = new ITunesLibrary();
     }
 
     [Test]
-    public void Parse() {
+    public void Parse()
+    {
+      var tracks = library.Parse(filepath);
       Assert.That(tracks.Count(), Is.EqualTo(25));
 
       var track = tracks.First();
@@ -40,18 +43,18 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
-      var firstTrack = tracks.First();
-      Assert.That(String.IsNullOrEmpty(firstTrack.AlbumArtist));
+      var firstTrack = library.Parse(filepath).First();
+      Assert.That(firstTrack.AlbumArtist, Is.Null.Or.Empty);
     }
 
     [Test]
     public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
-      Assert.That(tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
+      Assert.That(library.Parse(filepath).Count(t => t.PartOfCompilation), Is.EqualTo(2));
     }
 
     [Test]
     public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
-      var track = tracks.First();
+      var track = library.Parse(filepath).First();
       Assert.That(track.PlayingTime, Is.EqualTo("4:35"));
     }
   }

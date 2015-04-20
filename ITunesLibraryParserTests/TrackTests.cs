@@ -5,22 +5,16 @@ using NUnit.Framework;
 namespace ITunesLibraryParserTests {
   [TestFixture]
   public class TrackTests {
-    private Track track;
-
-    [SetUp]
-    public void SetUp() {
-      track = CreateTrack();
-    }
-
     [Test]
     public void ToString_Track() {
+      var track = CreateTrack();
       Assert.That(track.ToString(), Is.EqualTo(string.Format("Artist: {0} - Track: {1} - Album: {2}", track.Artist, track.Name, track.Album)));
     }
 
     private static Track CreateTrack() {
-      return new Track { 
+      return new Track {
         TrackId = 456,
-        Name = "Witch Hunt", 
+        Name = "Witch Hunt",
         Artist = "Wayne Shorter",
         AlbumArtist = "Wayne Shorter",
         Composer = "Wayne Shorter",
@@ -35,7 +29,7 @@ namespace ITunesLibraryParserTests {
         DateAdded = DateTime.Today,
         BitRate = 330,
         SampleRate = 44100,
-        PlayCount = 55, 
+        PlayCount = 55,
         PlayDate = DateTime.Today,
         PartOfCompilation = false
       };
