@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -24,53 +23,26 @@ namespace ITunesLibraryParser {
 
     private Track CreateTrack(XElement trackElement) {
       return new Track {
-        TrackId = Int32.Parse(ParseStringValue(trackElement, "Track ID")),
-        Name = ParseStringValue(trackElement, "Name"),
-        Artist = ParseStringValue(trackElement, "Artist"),
-        AlbumArtist = ParseStringValue(trackElement, "AlbumArtist"),
-        Composer = ParseStringValue(trackElement, "Composer"),
-        Album = ParseStringValue(trackElement, "Album"),
-        Genre = ParseStringValue(trackElement, "Genre"),
-        Kind = ParseStringValue(trackElement, "Kind"),
-        Size = ParseLongValue(trackElement, "Size"),
-        PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((ParseLongValue(trackElement, "Total Time"))),
-        TrackNumber = ParseNullableIntValue(trackElement, "Track Number"),
-        Year = ParseNullableIntValue(trackElement, "Year"),
-        DateModified = ParseNullableDateValue(trackElement, "Date Modified"),
-        DateAdded = ParseNullableDateValue(trackElement, "Date Added"),
-        BitRate = ParseNullableIntValue(trackElement, "Bit Rate"),
-        SampleRate = ParseNullableIntValue(trackElement, "Sample Rate"),
-        PlayDate = ParseNullableDateValue(trackElement, "Play Date UTC"),
-        PlayCount = ParseNullableIntValue(trackElement, "Play Count"),
-        PartOfCompilation = ParseBoolean(trackElement, "Compilation"),
+        TrackId = Int32.Parse(XElementParse.ParseStringValue(trackElement, "Track ID")),
+        Name = XElementParse.ParseStringValue(trackElement, "Name"),
+        Artist = XElementParse.ParseStringValue(trackElement, "Artist"),
+        AlbumArtist = XElementParse.ParseStringValue(trackElement, "AlbumArtist"),
+        Composer = XElementParse.ParseStringValue(trackElement, "Composer"),
+        Album = XElementParse.ParseStringValue(trackElement, "Album"),
+        Genre = XElementParse.ParseStringValue(trackElement, "Genre"),
+        Kind = XElementParse.ParseStringValue(trackElement, "Kind"),
+        Size = XElementParse.ParseLongValue(trackElement, "Size"),
+        PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((XElementParse.ParseLongValue(trackElement, "Total Time"))),
+        TrackNumber = XElementParse.ParseNullableIntValue(trackElement, "Track Number"),
+        Year = XElementParse.ParseNullableIntValue(trackElement, "Year"),
+        DateModified = XElementParse.ParseNullableDateValue(trackElement, "Date Modified"),
+        DateAdded = XElementParse.ParseNullableDateValue(trackElement, "Date Added"),
+        BitRate = XElementParse.ParseNullableIntValue(trackElement, "Bit Rate"),
+        SampleRate = XElementParse.ParseNullableIntValue(trackElement, "Sample Rate"),
+        PlayDate = XElementParse.ParseNullableDateValue(trackElement, "Play Date UTC"),
+        PlayCount = XElementParse.ParseNullableIntValue(trackElement, "Play Count"),
+        PartOfCompilation = XElementParse.ParseBoolean(trackElement, "Compilation"),
       };
-    }
-
-    bool ParseBoolean(XElement track, string keyValue) {
-      return (from keyNode in track.Descendants("key")
-              where keyNode.Value == keyValue
-              select (keyNode.NextNode as XElement).Name).FirstOrDefault() == "true";
-    }
-
-    string ParseStringValue(XElement track, string keyValue) {
-      return (from key in track.Descendants("key")
-              where key.Value == keyValue
-              select (key.NextNode as XElement).Value).FirstOrDefault();
-    }
-
-    long ParseLongValue(XElement track, string keyValue) {
-      var stringValue = ParseStringValue(track, keyValue);
-      return Int64.Parse(stringValue);
-    }
-
-    int? ParseNullableIntValue(XElement track, string keyValue) {
-      var stringValue = ParseStringValue(track, keyValue);
-      return String.IsNullOrEmpty(stringValue) ? (int?)null : Int32.Parse(stringValue);
-    }
-
-    DateTime? ParseNullableDateValue(XElement track, string keyValue) {
-      var stringValue = ParseStringValue(track, keyValue);
-      return String.IsNullOrEmpty(stringValue) ? (DateTime?)null : DateTime.SpecifyKind(DateTime.Parse(stringValue, CultureInfo.InvariantCulture), DateTimeKind.Utc).ToLocalTime();
     }
 
     static string ConvertMillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
