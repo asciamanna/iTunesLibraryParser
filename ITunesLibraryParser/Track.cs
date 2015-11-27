@@ -27,7 +27,49 @@ namespace ITunesLibraryParser {
     }
 
     public Track Copy() {
-     return this.MemberwiseClone() as Track;
+      return MemberwiseClone() as Track;
+    }
+
+    protected bool Equals(Track other) {
+      return TrackId == other.TrackId && string.Equals(Name, other.Name) && string.Equals(Artist, other.Artist) && 
+        string.Equals(AlbumArtist, other.AlbumArtist) && string.Equals(Composer, other.Composer) && 
+        string.Equals(Album, other.Album) && string.Equals(Genre, other.Genre) && 
+        string.Equals(Kind, other.Kind) && Size == other.Size && string.Equals(PlayingTime, other.PlayingTime) && 
+        TrackNumber == other.TrackNumber && Year == other.Year && DateModified.Equals(other.DateModified) && 
+        DateAdded.Equals(other.DateAdded) && BitRate == other.BitRate && SampleRate == other.SampleRate && 
+        PlayCount == other.PlayCount && PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation;
+    }
+
+    public override bool Equals(object obj) {
+      if (ReferenceEquals(null, obj)) return false;
+      if (ReferenceEquals(this, obj)) return true;
+      if (obj.GetType() != this.GetType()) return false;
+      return Equals((Track)obj);
+    }
+
+    public override int GetHashCode() {
+      unchecked {
+        var hashCode = TrackId;
+        hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (Artist != null ? Artist.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (AlbumArtist != null ? AlbumArtist.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (Composer != null ? Composer.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (Album != null ? Album.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (Genre != null ? Genre.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ (Kind != null ? Kind.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ Size.GetHashCode();
+        hashCode = (hashCode * 397) ^ (PlayingTime != null ? PlayingTime.GetHashCode() : 0);
+        hashCode = (hashCode * 397) ^ TrackNumber.GetHashCode();
+        hashCode = (hashCode * 397) ^ Year.GetHashCode();
+        hashCode = (hashCode * 397) ^ DateModified.GetHashCode();
+        hashCode = (hashCode * 397) ^ DateAdded.GetHashCode();
+        hashCode = (hashCode * 397) ^ BitRate.GetHashCode();
+        hashCode = (hashCode * 397) ^ SampleRate.GetHashCode();
+        hashCode = (hashCode * 397) ^ PlayCount.GetHashCode();
+        hashCode = (hashCode * 397) ^ PlayDate.GetHashCode();
+        hashCode = (hashCode * 397) ^ PartOfCompilation.GetHashCode();
+        return hashCode;
+      }
     }
   }
 
