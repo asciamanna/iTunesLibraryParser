@@ -8,7 +8,7 @@ namespace ITunesLibraryParserTests {
   public class ITunesLibraryTest
   {
     private ITunesLibrary library;
-    private const string filepath = @".\sampleiTunesLibrary.xml";
+    private const string Filepath = @".\sampleiTunesLibrary.xml";
 
     [SetUp]
     public void Setup() {
@@ -18,7 +18,7 @@ namespace ITunesLibraryParserTests {
     [Test]
     public void Parse()
     {
-      var tracks = library.Parse(filepath);
+      var tracks = library.Parse(Filepath);
       Assert.That(tracks.Count(), Is.EqualTo(25));
 
       var track = tracks.First();
@@ -43,18 +43,18 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
-      var firstTrack = library.Parse(filepath).First();
+      var firstTrack = library.Parse(Filepath).First();
       Assert.That(firstTrack.AlbumArtist, Is.Null.Or.Empty);
     }
 
     [Test]
     public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
-      Assert.That(library.Parse(filepath).Count(t => t.PartOfCompilation), Is.EqualTo(2));
+      Assert.That(library.Parse(Filepath).Count(t => t.PartOfCompilation), Is.EqualTo(2));
     }
 
     [Test]
     public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
-      var track = library.Parse(filepath).First();
+      var track = library.Parse(Filepath).First();
       Assert.That(track.PlayingTime, Is.EqualTo("4:35"));
     }
   }

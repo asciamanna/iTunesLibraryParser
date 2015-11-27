@@ -10,6 +10,7 @@ namespace ITunesLibraryParser {
   }
 
   public class ITunesLibrary : IITunesLibrary {
+
     public IEnumerable<Track> Parse(string fileLocation) {
       var trackElements = LoadTrackElements(fileLocation);
       return trackElements.Select(CreateTrack);
