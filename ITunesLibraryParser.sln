@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser", "ITunesLibraryParser\ITunesLibraryParser.csproj", "{B251EEE4-5448-4F54-9755-86EB79DA9419}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParserTests", "ITunesLibraryParserTests\ITunesLibraryParserTests.csproj", "{A1761372-7310-49EB-ABA5-A609EC99F24B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser.Tests", "ITunesLibraryParserTests\ITunesLibraryParser.Tests.csproj", "{A1761372-7310-49EB-ABA5-A609EC99F24B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
