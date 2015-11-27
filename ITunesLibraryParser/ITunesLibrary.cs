@@ -32,7 +32,7 @@ namespace ITunesLibraryParser {
         Genre = XElementParse.ParseStringValue(trackElement, "Genre"),
         Kind = XElementParse.ParseStringValue(trackElement, "Kind"),
         Size = XElementParse.ParseLongValue(trackElement, "Size"),
-        PlayingTime = ConvertMillisecondsToFormattedMinutesAndSeconds((XElementParse.ParseLongValue(trackElement, "Total Time"))),
+        PlayingTime = TimeConvert.MillisecondsToFormattedMinutesAndSeconds((XElementParse.ParseLongValue(trackElement, "Total Time"))),
         TrackNumber = XElementParse.ParseNullableIntValue(trackElement, "Track Number"),
         Year = XElementParse.ParseNullableIntValue(trackElement, "Year"),
         DateModified = XElementParse.ParseNullableDateValue(trackElement, "Date Modified"),
@@ -43,14 +43,6 @@ namespace ITunesLibraryParser {
         PlayCount = XElementParse.ParseNullableIntValue(trackElement, "Play Count"),
         PartOfCompilation = XElementParse.ParseBoolean(trackElement, "Compilation"),
       };
-    }
-
-    static string ConvertMillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
-      var totalSeconds = Math.Round(TimeSpan.FromMilliseconds(milliseconds).TotalSeconds);
-      var minutes = (int)(totalSeconds / 60);
-      var seconds = (int)(totalSeconds - (minutes * 60));
-      var timespan = new TimeSpan(0, minutes, seconds);
-      return timespan.ToString("m\\:ss");
     }
   }
 }
