@@ -19,12 +19,12 @@ namespace ITunesLibraryParser {
 
     public static long ParseLongValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
-      return Int64.Parse(stringValue);
+      return long.Parse(stringValue);
     }
 
     public static int? ParseNullableIntValue(XElement track, string keyValue) {
       var stringValue = ParseStringValue(track, keyValue);
-      return String.IsNullOrEmpty(stringValue) ? (int?)null : Int32.Parse(stringValue);
+      return String.IsNullOrEmpty(stringValue) ? (int?)null : int.Parse(stringValue);
     }
 
     public static DateTime? ParseNullableDateValue(XElement track, string keyValue) {

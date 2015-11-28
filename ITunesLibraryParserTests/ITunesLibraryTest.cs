@@ -5,8 +5,7 @@ using NUnit.Framework;
 
 namespace ITunesLibraryParserTests {
   [TestFixture]
-  public class ITunesLibraryTest
-  {
+  public class ITunesLibraryTest {
     private ITunesLibrary library;
     private const string Filepath = @".\sampleiTunesLibrary.xml";
 
@@ -16,8 +15,7 @@ namespace ITunesLibraryParserTests {
     }
 
     [Test]
-    public void Parse()
-    {
+    public void Parse() {
       var tracks = library.Parse(Filepath);
       Assert.That(tracks.Count(), Is.EqualTo(25));
 
