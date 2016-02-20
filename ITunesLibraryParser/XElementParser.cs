@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-  public static class XElementParse {
+  public static class XElementParser {
     public static bool ParseBoolean(XElement track, string keyValue) {
       return (from keyNode in track.Descendants("key")
         where keyNode.Value == keyValue
