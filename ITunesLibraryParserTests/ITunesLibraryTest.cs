@@ -26,17 +26,15 @@ namespace ITunesLibraryParserTests
         }
 
         [Test]
-        public void Parse_Parses_All_Results()
+        public void Tracks_Parses_All_Results()
         {
             Assert.That(subject.Tracks.Count(), Is.EqualTo(25));
         }
 
         [Test]
-        public void Parse_Parses_All_Fields_On_Track()
+        public void Tracks_Parses_All_Fields_On_Track()
         {
-
             var result = subject.Tracks.First();
-
             Assert.That(result.TrackId, Is.EqualTo(17714));
             Assert.That(result.Name, Is.EqualTo("Dream Gypsy"));
             Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
@@ -57,23 +55,47 @@ namespace ITunesLibraryParserTests
         }
 
         [Test]
-        public void Parse_populates_null_values_for_nonexistent_elements()
+        public void Tracks_populates_null_values_for_nonexistent_elements()
         {
             var result = subject.Tracks.First();
             Assert.That(result.AlbumArtist, Is.Null.Or.Empty);
         }
 
         [Test]
-        public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes()
+        public void Tracks_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes()
         {
             Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
         }
 
         [Test]
-        public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds()
+        public void Tracks_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds()
         {
             var result = subject.Tracks.First();
             Assert.That(result.PlayingTime, Is.EqualTo("4:35"));
+        }
+
+        [Test]
+        public void Albums_FiltersAlbumNames()
+        {
+            Assert.AreEqual(5, subject.Albums.Count());
+        }
+
+        [Test]
+        public void Artists_FiltersArtists()
+        {
+            Assert.AreEqual(6, subject.Artists.Count());
+        }
+
+        [Test]
+        public void Geneires_FiltersGeneires()
+        {
+            Assert.AreEqual(1, subject.Geneires.Count());
+        }
+
+        [Test]
+        public void Years_FiltersYears()
+        {
+            Assert.AreEqual(5, subject.Years.Count());
         }
     }
 }

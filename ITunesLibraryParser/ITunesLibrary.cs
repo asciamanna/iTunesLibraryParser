@@ -76,8 +76,10 @@ namespace ITunesLibraryParser
 
         public IEnumerable<string> Years
         {
-            get { return Tracks.Select(t => t).Cast<string>().OrderBy(t => t).Distinct(); }
+            get { return Tracks.Select(t => t.Year.ToString()).OrderBy(t => t).Distinct(); }
         }
+
+
 
         public IEnumerable<Track> Filter(FilterKind kind, string param)
         {
