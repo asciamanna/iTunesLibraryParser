@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="sampleiTunesLibrary.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

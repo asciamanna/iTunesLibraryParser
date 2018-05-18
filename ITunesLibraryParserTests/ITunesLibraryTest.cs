@@ -9,12 +9,20 @@ namespace ITunesLibraryParserTests
     public class ITunesLibraryTest
     {
         private ITunesLibrary subject;
-        private const string Filepath = @".\sampleiTunesLibrary.xml";
+        private const string Filepath = @"sampleiTunesLibrary.xml";
 
         [SetUp]
         public void Setup()
         {
-            subject = new ITunesLibrary(Filepath);
+            var basedir = AppDomain.CurrentDomain.BaseDirectory;
+            var file = System.IO.Path.Combine(basedir, Filepath);
+            subject = new ITunesLibrary(file);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            subject = null;
         }
 
         [Test]
@@ -44,7 +52,7 @@ namespace ITunesLibraryParserTests
             Assert.That(result.BitRate, Is.EqualTo(320));
             Assert.That(result.SampleRate, Is.EqualTo(44100));
             Assert.That(result.PlayCount, Is.EqualTo(11));
-            Assert.That(result.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 15)));
+            Assert.That(result.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 16)));
             Assert.That(result.PartOfCompilation, Is.True);
         }
 
