@@ -1,8 +1,8 @@
 using System;
 
-namespace ITunesLibraryParser
+namespace ITunesLibraryParser.Internals
 {
-    public static class TimeConvert
+    internal static class TimeConvert
     {
         public static string MillisecondsToFormattedMinutesAndSeconds(long milliseconds)
         {

@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterKind.cs" />
     <Compile Include="IITunesLibrary.cs" />
+    <Compile Include="Internals\TrackFactory.cs" />
     <Compile Include="ITunesLibrary.cs" />
-    <Compile Include="TimeConvert.cs" />
+    <Compile Include="Internals\TimeConvert.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XElementParser.cs" />
+    <Compile Include="Internals\XElementParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

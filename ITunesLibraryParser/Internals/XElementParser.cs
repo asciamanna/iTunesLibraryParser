@@ -3,9 +3,9 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ITunesLibraryParser
+namespace ITunesLibraryParser.Internals
 {
-    public static class XElementParser
+    internal static class XElementParser
     {
         public static bool ParseBoolean(XElement track, string keyValue)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITunesLibraryParser.Internals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -11,30 +12,9 @@ namespace ITunesLibraryParser
         private XDocument _xml;
         private List<Track> _tracks;
 
-        private Track CreateTrack(XElement trackElement)
+        public ITunesLibrary(string fileLocation)
         {
-            return new Track
-            {
-                TrackId = Int32.Parse(XElementParser.ParseStringValue(trackElement, "Track ID")),
-                Name = XElementParser.ParseStringValue(trackElement, "Name"),
-                Artist = XElementParser.ParseStringValue(trackElement, "Artist"),
-                AlbumArtist = XElementParser.ParseStringValue(trackElement, "AlbumArtist"),
-                Composer = XElementParser.ParseStringValue(trackElement, "Composer"),
-                Album = XElementParser.ParseStringValue(trackElement, "Album"),
-                Genre = XElementParser.ParseStringValue(trackElement, "Genre"),
-                Kind = XElementParser.ParseStringValue(trackElement, "Kind"),
-                Size = XElementParser.ParseLongValue(trackElement, "Size"),
-                PlayingTime = TimeConvert.MillisecondsToFormattedMinutesAndSeconds((XElementParser.ParseLongValue(trackElement, "Total Time"))),
-                TrackNumber = XElementParser.ParseNullableIntValue(trackElement, "Track Number"),
-                Year = XElementParser.ParseNullableIntValue(trackElement, "Year"),
-                DateModified = XElementParser.ParseNullableDateValue(trackElement, "Date Modified"),
-                DateAdded = XElementParser.ParseNullableDateValue(trackElement, "Date Added"),
-                BitRate = XElementParser.ParseNullableIntValue(trackElement, "Bit Rate"),
-                SampleRate = XElementParser.ParseNullableIntValue(trackElement, "Sample Rate"),
-                PlayDate = XElementParser.ParseNullableDateValue(trackElement, "Play Date UTC"),
-                PlayCount = XElementParser.ParseNullableIntValue(trackElement, "Play Count"),
-                PartOfCompilation = XElementParser.ParseBoolean(trackElement, "Compilation"),
-            };
+            _xml = XDocument.Load(fileLocation);
         }
 
         private IEnumerable<XElement> LoadTrackElements()
@@ -55,11 +35,6 @@ namespace ITunesLibraryParser
                    select x;
         }
 
-        public ITunesLibrary(string fileLocation)
-        {
-            _xml = XDocument.Load(fileLocation);
-        }
-
         public IEnumerable<Track> Tracks
         {
             get
@@ -67,7 +42,7 @@ namespace ITunesLibraryParser
                 if (_tracks == null)
                 {
                     var trackElements = LoadTrackElements();
-                    _tracks = trackElements.Select(CreateTrack).ToList();
+                    _tracks = trackElements.Select(TrackFactory.CreateTrack).ToList();
                 }
                 return _tracks;
             }
@@ -97,8 +72,8 @@ namespace ITunesLibraryParser
         {
             get
             {
-                var plsNodes = LoadPlaylists();
-                foreach (var item in plsNodes)
+                var playlistNodes = LoadPlaylists();
+                foreach (var item in playlistNodes)
                 {
                     yield return XElementParser.ParseStringValue(item, "Name");
                 }
@@ -113,7 +88,7 @@ namespace ITunesLibraryParser
                     return Tracks.Where(t => t.Album == param);
                 case FilterKind.Artist:
                     return Tracks.Where(t => t.Artist == param);
-                case FilterKind.Geneires:
+                case FilterKind.Genres:
                     return Tracks.Where(t => t.Genre == param);
                 case FilterKind.Year:
                     return Tracks.Where(t => t.Year == int.Parse(param));
@@ -125,9 +100,9 @@ namespace ITunesLibraryParser
 
         public IEnumerable<Track> ReadPlaylist(string id)
         {
-            var plsNodes = LoadPlaylists();
+            var playlistNodes = LoadPlaylists();
 
-            var query = from node in plsNodes
+            var query = from node in playlistNodes
                     where XElementParser.ParseStringValue(node, "Name") == id
                     select node.Descendants("array").Descendants("dict");
 

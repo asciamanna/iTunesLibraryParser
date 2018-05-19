@@ -2,15 +2,6 @@
 
 namespace ITunesLibraryParser
 {
-    public enum FilterKind
-    {
-        None,
-        Album,
-        Artist,
-        Geneires,
-        Year
-    }
-
     public interface IITunesLibrary
     {
         IEnumerable<Track> Tracks { get; }
