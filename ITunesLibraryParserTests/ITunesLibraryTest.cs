@@ -89,7 +89,7 @@ namespace ITunesLibraryParserTests
         [Test]
         public void Geneires_FiltersGeneires()
         {
-            Assert.AreEqual(1, subject.Geneires.Count());
+            Assert.AreEqual(1, subject.Genres.Count());
         }
 
         [Test]

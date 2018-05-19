@@ -83,7 +83,7 @@ namespace ITunesLibraryParser
             get { return Tracks.Select(t => t.Artist).OrderBy(t => t).Distinct(); }
         }
 
-        public IEnumerable<string> Geneires
+        public IEnumerable<string> Genres
         {
             get { return Tracks.Select(t => t.Genre).OrderBy(t => t).Distinct(); }
         }
