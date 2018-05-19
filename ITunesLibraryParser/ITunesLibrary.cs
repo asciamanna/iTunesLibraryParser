@@ -9,6 +9,7 @@ namespace ITunesLibraryParser
     {
 
         private XDocument _xml;
+        private List<Track> _tracks;
 
         private Track CreateTrack(XElement trackElement)
         {
@@ -45,6 +46,15 @@ namespace ITunesLibraryParser
                    select x;
         }
 
+        private IEnumerable<XElement> LoadPlaylists()
+        {
+            return from x in _xml.Descendants("dict")
+                   .Descendants("array")
+                   .Descendants("dict")
+                   where x.Descendants("key").Count() > 1
+                   select x;
+        }
+
         public ITunesLibrary(string fileLocation)
         {
             _xml = XDocument.Load(fileLocation);
@@ -54,8 +64,12 @@ namespace ITunesLibraryParser
         {
             get
             {
-                var trackElements = LoadTrackElements();
-                return trackElements.Select(CreateTrack);
+                if (_tracks == null)
+                {
+                    var trackElements = LoadTrackElements();
+                    _tracks = trackElements.Select(CreateTrack).ToList();
+                }
+                return _tracks;
             }
         }
 
@@ -79,7 +93,17 @@ namespace ITunesLibraryParser
             get { return Tracks.Select(t => t.Year.ToString()).OrderBy(t => t).Distinct(); }
         }
 
-
+        public IEnumerable<string> Playlists
+        {
+            get
+            {
+                var plsNodes = LoadPlaylists();
+                foreach (var item in plsNodes)
+                {
+                    yield return XElementParser.ParseStringValue(item, "Name");
+                }
+             }
+        }
 
         public IEnumerable<Track> Filter(FilterKind kind, string param)
         {
@@ -96,6 +120,25 @@ namespace ITunesLibraryParser
                 case FilterKind.None:
                 default:
                     return Tracks;
+            }
+        }
+
+        public IEnumerable<Track> ReadPlaylist(string id)
+        {
+            var plsNodes = LoadPlaylists();
+
+            var query = from node in plsNodes
+                    where XElementParser.ParseStringValue(node, "Name") == id
+                    select node.Descendants("array").Descendants("dict");
+
+            foreach (var item in query)
+            {
+                foreach (var subitem in item)
+                {
+                    var trackid = Int32.Parse(XElementParser.ParseStringValue(subitem, "Track ID"));
+                    var track = Tracks.Where(t => t.TrackId == trackid).FirstOrDefault();
+                    yield return track;
+                }
             }
         }
     }

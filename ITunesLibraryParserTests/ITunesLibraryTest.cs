@@ -97,5 +97,11 @@ namespace ITunesLibraryParserTests
         {
             Assert.AreEqual(5, subject.Years.Count());
         }
+
+        [Test]
+        public void ReadPlaylist_RetunsTracks()
+        {
+            Assert.AreEqual(6, subject.ReadPlaylist("Songs To Learn 10/18/08").Count());
+        }
     }
 }

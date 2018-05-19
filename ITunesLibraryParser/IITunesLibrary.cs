@@ -18,6 +18,8 @@ namespace ITunesLibraryParser
         IEnumerable<string> Artists { get; }
         IEnumerable<string> Geneires { get; }
         IEnumerable<string> Years { get; }
+        IEnumerable<string> Playlists { get; }
         IEnumerable<Track> Filter(FilterKind kind, string param);
+        IEnumerable<Track> ReadPlaylist(string id);
     }
 }
