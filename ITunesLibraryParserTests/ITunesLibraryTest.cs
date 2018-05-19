@@ -87,7 +87,7 @@ namespace ITunesLibraryParserTests
         }
 
         [Test]
-        public void Geneires_FiltersGeneires()
+        public void Geneires_FiltersGenres()
         {
             Assert.AreEqual(1, subject.Genres.Count());
         }
@@ -102,6 +102,40 @@ namespace ITunesLibraryParserTests
         public void ReadPlaylist_RetunsTracks()
         {
             Assert.AreEqual(6, subject.ReadPlaylist("Songs To Learn 10/18/08").Count());
+        }
+
+        [Test]
+        public void Filter_FilterKind_Album_Works()
+        {
+            var tracks = subject.Filter(FilterKind.Album, "Undercurrent");
+            Assert.AreEqual(8, tracks.Count());
+        }
+
+        [Test]
+        public void Filter_FilterKind_Artist_Works()
+        {
+            var tracks = subject.Filter(FilterKind.Artist, "Bill Evans & Jim Hall");
+            Assert.AreEqual(8, tracks.Count());
+        }
+
+        [Test]
+        public void Filter_FilterKind_Genre_Works()
+        {
+            var tracks = subject.Filter(FilterKind.Genre, "Jazz");
+            Assert.AreEqual(25, tracks.Count());
+        }
+
+        [Test]
+        public void Filter_FilterKind_Year_Works()
+        {
+            var tracks = subject.Filter(FilterKind.Year, "1962");
+            Assert.AreEqual(10, tracks.Count());
+        }
+        [Test]
+        public void Filter_FilterKind_None_Works()
+        {
+            var tracks = subject.Filter(FilterKind.None, null);
+            Assert.AreEqual(25, tracks.Count());
         }
     }
 }

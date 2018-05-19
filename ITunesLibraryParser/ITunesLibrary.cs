@@ -88,7 +88,7 @@ namespace ITunesLibraryParser
                     return Tracks.Where(t => t.Album == param);
                 case FilterKind.Artist:
                     return Tracks.Where(t => t.Artist == param);
-                case FilterKind.Genres:
+                case FilterKind.Genre:
                     return Tracks.Where(t => t.Genre == param);
                 case FilterKind.Year:
                     return Tracks.Where(t => t.Year == int.Parse(param));

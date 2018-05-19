@@ -5,7 +5,7 @@
         None,
         Album,
         Artist,
-        Genres,
+        Genre,
         Year
     }
 }
