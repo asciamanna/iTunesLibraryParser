@@ -9,9 +9,9 @@
     <licenseUrl>https://github.com/asciamanna/iTunesLibraryParser/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/asciamanna/iTunesLibraryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Library that parses an iTunesLibrary file (PropertyList format)</description>
+    <description>Parses an iTunes Library xml file (PropertyList format)</description>
     <releaseNotes>Supports parsing Track and Playlist information</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>iTunes .NET</tags>
+    <tags>iTunes xml plist PropertyList</tags>
   </metadata>
 </package>
