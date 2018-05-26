@@ -16,23 +16,23 @@ namespace ITunesLibraryParserTests {
         [SetUp]
         public void Setup() {
             fileSystem = new Mock<IFileSystem>();
-            subject = new ITunesLibrary(fileSystem.Object);
+            subject = new ITunesLibrary(Filepath, fileSystem.Object);
         }
 
         [Test]
-        public void Parse_Parses_All_Results() {
+        public void Tracks_Parses_All_Tracks_From_Library() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            var result = subject.Parse(Filepath);
+            var result = subject.Tracks;
 
             Assert.That(result.Count(), Is.EqualTo(25));
         }
 
         [Test]
-        public void Parse_Parses_All_Fields_On_Track() {
+        public void Tracks_Parses_All_Fields_On_Track() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            var result = subject.Parse(Filepath).First();
+            var result = subject.Tracks.First();
 
             Assert.That(result.TrackId, Is.EqualTo(17714));
             Assert.That(result.Name, Is.EqualTo("Dream Gypsy"));
@@ -54,27 +54,37 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
-        public void Parse_populates_null_values_for_nonexistent_elements() {
+        public void Tracks_Populates_Null_Values_For_Nonexistent_Elements() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            var result = subject.Parse(Filepath).First();
+            var result = subject.Tracks.First();
 
             Assert.That(result.AlbumArtist, Is.Null.Or.Empty);
         }
 
         [Test]
-        public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
+        public void Tracks_Sets_Boolean_Properties_To_False_For_Nonexistent_Boolean_Nodes() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            Assert.That(subject.Parse(Filepath).Count(t => t.PartOfCompilation), Is.EqualTo(2));
+            Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
         }
 
         [Test]
-        public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
+        public void Tracks_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            var result = subject.Parse(Filepath).First();
+            var result = subject.Tracks.First();
             Assert.That(result.PlayingTime, Is.EqualTo("4:35"));
+        }
+
+        [Test]
+        public void Tracks_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Tracks;
+            results = subject.Tracks;
+
+            fileSystem.Verify(fs => fs.ReadTextFromFile(Filepath), Times.Once);
         }
     }
 }

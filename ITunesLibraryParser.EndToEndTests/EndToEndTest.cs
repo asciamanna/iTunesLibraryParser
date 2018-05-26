@@ -8,18 +8,18 @@ namespace ITunesLibraryParser.EndToEndTests
     [TestFixture]
     public class EndToEndTest
     {
-        private readonly string FileLocation = Path.Combine(TestContext.CurrentContext.TestDirectory,
+        private readonly string fileLocation = Path.Combine(TestContext.CurrentContext.TestDirectory,
             "sampleiTunesLibrary.xml");
         private ITunesLibrary subject;
 
         [SetUp]
         public void SetUp() {
-            subject = new ITunesLibrary();
+            subject = new ITunesLibrary(fileLocation);
         }
 
         [Test]
         public void Parser_Reads_Library_From_Filesystem_And_Parses() {
-            var results = subject.Parse(FileLocation);
+            var results = subject.Tracks;
 
             var result = results.First();
             Assert.That(result.TrackId, Is.EqualTo(17714));

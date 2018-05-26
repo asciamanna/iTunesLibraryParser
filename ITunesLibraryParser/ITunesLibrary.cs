@@ -5,20 +5,32 @@ using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
     public interface IITunesLibrary {
-        IEnumerable<Track> Parse(string xmlFileLocation);
+        IEnumerable<Track> Tracks { get; }
     }
 
     public class ITunesLibrary : IITunesLibrary {
         private readonly IFileSystem fileSystem;
+        private readonly string xmlFileLocation;
+        private IEnumerable<Track> tracks;
 
-        public ITunesLibrary() : this(new FileSystem()) { }
+        public ITunesLibrary(string xmlFileLocation) : this(xmlFileLocation, new FileSystem()) { }
 
-        public ITunesLibrary(IFileSystem fileSystem) {
+        public ITunesLibrary(string xmlFileLocation, IFileSystem fileSystem) {
+            this.xmlFileLocation = xmlFileLocation;
             this.fileSystem = fileSystem;
         }
 
-        public IEnumerable<Track> Parse(string fileLocation) {
-            var trackElements = ParseTrackElements(fileSystem.ReadTextFromFile(fileLocation));
+        public IEnumerable<Track> Tracks {
+            get {
+                if (tracks != null)
+                    return tracks;
+                tracks = ParseTracks();
+                return tracks;
+            }
+        }
+
+        private IEnumerable<Track> ParseTracks() {
+            var trackElements = ParseTrackElements(fileSystem.ReadTextFromFile(xmlFileLocation));
             return trackElements.Select(CreateTrack);
         }
 
