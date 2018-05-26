@@ -12,7 +12,7 @@ This approach stores all of the data in memory so it would not be recommended fo
 The ability to parse playlist information.
 
 ## Project Dependencies
-NUnit 2.6.3  
+NUnit 3.10.1  
 
 
 ## Contact
