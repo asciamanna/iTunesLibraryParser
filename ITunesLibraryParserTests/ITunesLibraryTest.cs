@@ -84,6 +84,7 @@ namespace ITunesLibraryParserTests {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First();
+
             Assert.That(result.PlayingTime, Is.EqualTo("4:35"));
         }
 
