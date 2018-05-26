@@ -8,20 +8,20 @@ namespace ITunesLibraryParser {
     IEnumerable<Track> Parse(string xmlFileLocation);
   }
 
-  public class ITunesLibrary : IITunesLibrary {
+    public class ITunesLibrary : IITunesLibrary {
 
     public IEnumerable<Track> Parse(string fileLocation) {
-      var trackElements = LoadTrackElements(fileLocation);
+      var trackElements = ParseTrackElements(FileSystem.ReadTextFromFile(fileLocation));
       return trackElements.Select(CreateTrack);
     }
 
-    private static IEnumerable<XElement> LoadTrackElements(string fileLocation) {
-      return from x in XDocument.Load(fileLocation).Descendants("dict").Descendants("dict").Descendants("dict")
+      private IEnumerable<XElement> ParseTrackElements(string libraryContents) {
+      return from x in XDocument.Parse(libraryContents).Descendants("dict").Descendants("dict").Descendants("dict")
                           where x.Descendants("key").Count() > 1
                           select x;
     }
 
-    private Track CreateTrack(XElement trackElement) {
+        private static Track CreateTrack(XElement trackElement) {
       return new Track {
         TrackId = Int32.Parse(XElementParser.ParseStringValue(trackElement, "Track ID")),
         Name = XElementParser.ParseStringValue(trackElement, "Name"),

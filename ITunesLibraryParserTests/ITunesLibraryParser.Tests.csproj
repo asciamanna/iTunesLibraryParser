@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ITunesLibraryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestObjects\TestLibraryData.cs" />
     <Compile Include="TestObjects\TestTrack.cs" />
     <Compile Include="TrackTest.cs" />
   </ItemGroup>
@@ -62,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="sampleiTunesLibrary.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

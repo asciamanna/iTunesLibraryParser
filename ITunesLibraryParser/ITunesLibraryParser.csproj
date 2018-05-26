@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSystem.cs" />
     <Compile Include="ITunesLibrary.cs" />
     <Compile Include="TimeConvert.cs" />
     <Compile Include="Track.cs" />
