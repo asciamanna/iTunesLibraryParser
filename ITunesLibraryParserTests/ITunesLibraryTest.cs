@@ -11,7 +11,7 @@ namespace ITunesLibraryParserTests {
 
         private Mock<IFileSystem> fileSystem;
         private ITunesLibrary subject;
-        private const string Filepath = @".\sampleiTunesLibrary.xml";
+        private const string Filepath = "itunes-library-file-location";
 
         [SetUp]
         public void Setup() {
