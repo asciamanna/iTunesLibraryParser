@@ -1,28 +1,36 @@
 ﻿using System;
 using System.Linq;
 using ITunesLibraryParser;
+using ITunesLibraryParserTests.TestObjects;
+using Moq;
 using NUnit.Framework;
 
 namespace ITunesLibraryParserTests {
   [TestFixture]
   public class ITunesLibraryTest {
-    private ITunesLibrary subject;
-    private const string Filepath = @".\sampleiTunesLibrary.xml";
+
+      private Mock<IFileSystem> fileSystem;
+      private ITunesLibrary subject;
+      private const string Filepath = @".\sampleiTunesLibrary.xml";
 
     [SetUp]
     public void Setup() {
-      subject = new ITunesLibrary();
+        fileSystem = new Mock<IFileSystem>();
+        subject = new ITunesLibrary(fileSystem.Object);
     }
 
     [Test]
     public void Parse_Parses_All_Results() {
-      var result = subject.Parse(Filepath);
+        fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+        var result = subject.Parse(Filepath);
       
       Assert.That(result.Count(), Is.EqualTo(25));
     }
 
     [Test]
     public void Parse_Parses_All_Fields_On_Track() {
+        fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
       var result = subject.Parse(Filepath).First();
 
@@ -47,17 +55,24 @@ namespace ITunesLibraryParserTests {
 
     [Test]
     public void Parse_populates_null_values_for_nonexistent_elements() {
+      fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
       var result = subject.Parse(Filepath).First();
+
       Assert.That(result.AlbumArtist, Is.Null.Or.Empty);
     }
 
     [Test]
     public void Parse_sets_boolean_properties_to_false_for_nonexistent_boolean_nodes() {
+      fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
       Assert.That(subject.Parse(Filepath).Count(t => t.PartOfCompilation), Is.EqualTo(2));
     }
 
     [Test]
     public void Parse_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
+      fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
       var result = subject.Parse(Filepath).First();
       Assert.That(result.PlayingTime, Is.EqualTo("4:35"));
     }

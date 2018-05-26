@@ -9,9 +9,16 @@ namespace ITunesLibraryParser {
   }
 
     public class ITunesLibrary : IITunesLibrary {
+        private readonly IFileSystem fileSystem;
 
-    public IEnumerable<Track> Parse(string fileLocation) {
-      var trackElements = ParseTrackElements(FileSystem.ReadTextFromFile(fileLocation));
+        public ITunesLibrary() : this(new FileSystem()) { }
+
+        public ITunesLibrary(IFileSystem fileSystem) {
+            this.fileSystem = fileSystem;
+        }
+
+        public IEnumerable<Track> Parse(string fileLocation) {
+      var trackElements = ParseTrackElements(fileSystem.ReadTextFromFile(fileLocation));
       return trackElements.Select(CreateTrack);
     }
 
