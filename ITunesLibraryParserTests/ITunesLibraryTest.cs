@@ -25,7 +25,17 @@ namespace ITunesLibraryParserTests {
 
             var result = subject.Tracks;
 
-            Assert.That(result.Count(), Is.EqualTo(25));
+            Assert.That(result.Count(), Is.EqualTo(30));
+        }
+
+        [Test]
+        public void Tracks_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Tracks;
+            results = subject.Tracks;
+
+            fileSystem.Verify(fs => fs.ReadTextFromFile(Filepath), Times.Once);
         }
 
         [Test]
@@ -78,13 +88,34 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
-        public void Tracks_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
+        public void Playlists_Parses_And_Returns_All_Playlists() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            var results = subject.Tracks;
-            results = subject.Tracks;
+            var results = subject.Playlists;
+
+            Assert.That(results.Count(), Is.EqualTo(15));
+        }
+
+        [Test]
+        public void Playlists_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Playlists;
+            results = subject.Playlists;
 
             fileSystem.Verify(fs => fs.ReadTextFromFile(Filepath), Times.Once);
+        }
+
+        [Test]
+        public void Playlists_Adds_Each_Track_To_Playlist() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Playlists;
+
+            var result = results.First();
+            Assert.That(result.Name, Is.EqualTo("MILES JAZZ - 3/2/06"));
+            var firstTrack = result.Tracks.First();
+            Assert.That(firstTrack.Name, Is.EqualTo("So What"));
         }
     }
 }

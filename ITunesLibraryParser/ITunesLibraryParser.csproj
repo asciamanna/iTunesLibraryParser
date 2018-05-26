@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="FileSystem.cs" />
     <Compile Include="ITunesLibrary.cs" />
+    <Compile Include="Playlist.cs" />
     <Compile Include="TimeConvert.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

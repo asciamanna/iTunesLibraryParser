@@ -811,6 +811,311 @@ namespace ITunesLibraryParserTests.TestObjects {
 			<key>File Folder Count</key><integer>4</integer>
 			<key>Library Folder Count</key><integer>1</integer>
 		</dict>
+        <key>9420</key>
+        <dict>
+            <key>Track ID</key>
+            <integer>9420</integer>
+            <key>Size</key>
+            <integer>26787957</integer>
+            <key>Total Time</key>
+            <integer>565426</integer>
+            <key>Disc Number</key>
+            <integer>1</integer>
+            <key>Disc Count</key>
+            <integer>1</integer>
+            <key>Track Number</key>
+            <integer>1</integer>
+            <key>Track Count</key>
+            <integer>6</integer>
+            <key>Year</key>
+            <integer>1959</integer>
+            <key>Date Modified</key>
+            <date>2011-12-02T03:44:55Z</date>
+            <key>Date Added</key>
+            <date>2006-03-03T02:42:25Z</date>
+            <key>Bit Rate</key>
+            <integer>320</integer>
+            <key>Sample Rate</key>
+            <integer>44100</integer>
+            <key>Play Count</key>
+            <integer>86</integer>
+            <key>Play Date</key>
+            <integer>3563462909</integer>
+            <key>Play Date UTC</key>
+            <date>2016-12-01T23:48:29Z</date>
+            <key>Skip Count</key>
+            <integer>27</integer>
+            <key>Skip Date</key>
+            <date>2017-12-23T13:04:14Z</date>
+            <key>Artwork Count</key>
+            <integer>1</integer>
+            <key>Persistent ID</key>
+            <string>5F5F204D05C1BD20</string>
+            <key>Track Type</key>
+            <string>File</string>
+            <key>File Folder Count</key>
+            <integer>4</integer>
+            <key>Library Folder Count</key>
+            <integer>1</integer>
+            <key>Name</key>
+            <string>So What</string>
+            <key>Artist</key>
+            <string>Miles Davis</string>
+            <key>Composer</key>
+            <string>Miles Davis</string>
+            <key>Album</key>
+            <string>Kind Of Blue</string>
+            <key>Genre</key>
+            <string>Jazz</string>
+            <key>Kind</key>
+            <string>MPEG audio file</string>
+            <key>Location</key>
+            <string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Miles%20Davis/Kind%20Of%20Blue/01%20So%20What%201.m4a</string>
+        </dict>
+        <key>9422</key>
+        <dict>
+            <key>Track ID</key>
+            <integer>9422</integer>
+            <key>Size</key>
+            <integer>27490974</integer>
+            <key>Total Time</key>
+            <integer>589066</integer>
+            <key>Disc Number</key>
+            <integer>1</integer>
+            <key>Disc Count</key>
+            <integer>1</integer>
+            <key>Track Number</key>
+            <integer>2</integer>
+            <key>Track Count</key>
+            <integer>6</integer>
+            <key>Year</key>
+            <integer>1959</integer>
+            <key>Date Modified</key>
+            <date>2011-12-02T03:45:20Z</date>
+            <key>Date Added</key>
+            <date>2006-03-03T02:43:36Z</date>
+            <key>Bit Rate</key>
+            <integer>320</integer>
+            <key>Sample Rate</key>
+            <integer>44100</integer>
+            <key>Play Count</key>
+            <integer>59</integer>
+            <key>Play Date</key>
+            <integer>3591026230</integer>
+            <key>Play Date UTC</key>
+            <date>2017-10-16T23:17:10Z</date>
+            <key>Skip Count</key>
+            <integer>16</integer>
+            <key>Skip Date</key>
+            <date>2016-07-22T22:28:56Z</date>
+            <key>Artwork Count</key>
+            <integer>1</integer>
+            <key>Persistent ID</key>
+            <string>5F5F204D05C1BD21</string>
+            <key>Track Type</key>
+            <string>File</string>
+            <key>File Folder Count</key>
+            <integer>4</integer>
+            <key>Library Folder Count</key>
+            <integer>1</integer>
+            <key>Name</key>
+            <string>Freddie Freeloader</string>
+            <key>Artist</key>
+            <string>Miles Davis</string>
+            <key>Composer</key>
+            <string>Miles Davis</string>
+            <key>Album</key>
+            <string>Kind Of Blue</string>
+            <key>Genre</key>
+            <string>Jazz</string>
+            <key>Kind</key>
+            <string>MPEG audio file</string>
+            <key>Location</key>
+            <string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Miles%20Davis/Kind%20Of%20Blue/02%20Freddie%20Freeloader%201.m4a</string>
+        </dict>
+        <key>9424</key>
+        <dict>
+            <key>Track ID</key>
+            <integer>9424</integer>
+            <key>Size</key>
+            <integer>15127715</integer>
+            <key>Total Time</key>
+            <integer>337573</integer>
+            <key>Disc Number</key>
+            <integer>1</integer>
+            <key>Disc Count</key>
+            <integer>1</integer>
+            <key>Track Number</key>
+            <integer>3</integer>
+            <key>Track Count</key>
+            <integer>6</integer>
+            <key>Year</key>
+            <integer>1959</integer>
+            <key>Date Modified</key>
+            <date>2011-12-02T03:45:33Z</date>
+            <key>Date Added</key>
+            <date>2006-03-03T02:44:41Z</date>
+            <key>Bit Rate</key>
+            <integer>320</integer>
+            <key>Sample Rate</key>
+            <integer>44100</integer>
+            <key>Play Count</key>
+            <integer>106</integer>
+            <key>Play Date</key>
+            <integer>3597500062</integer>
+            <key>Play Date UTC</key>
+            <date>2017-12-30T22:34:22Z</date>
+            <key>Skip Count</key>
+            <integer>12</integer>
+            <key>Skip Date</key>
+            <date>2015-09-04T19:59:46Z</date>
+            <key>Artwork Count</key>
+            <integer>1</integer>
+            <key>Persistent ID</key>
+            <string>5F5F204D05C1BD22</string>
+            <key>Track Type</key>
+            <string>File</string>
+            <key>File Folder Count</key>
+            <integer>4</integer>
+            <key>Library Folder Count</key>
+            <integer>1</integer>
+            <key>Name</key>
+            <string>Blue In Green</string>
+            <key>Artist</key>
+            <string>Miles Davis</string>
+            <key>Composer</key>
+            <string>Miles Davis</string>
+            <key>Album</key>
+            <string>Kind Of Blue</string>
+            <key>Genre</key>
+            <string>Jazz</string>
+            <key>Kind</key>
+            <string>MPEG audio file</string>
+            <key>Location</key>
+            <string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Miles%20Davis/Kind%20Of%20Blue/03%20Blue%20In%20Green%201.m4a</string>
+        </dict>
+        <key>9426</key>
+        <dict>
+            <key>Track ID</key>
+            <integer>9426</integer>
+            <key>Size</key>
+            <integer>33048194</integer>
+            <key>Total Time</key>
+            <integer>695760</integer>
+            <key>Disc Number</key>
+            <integer>1</integer>
+            <key>Disc Count</key>
+            <integer>1</integer>
+            <key>Track Number</key>
+            <integer>4</integer>
+            <key>Track Count</key>
+            <integer>6</integer>
+            <key>Year</key>
+            <integer>1959</integer>
+            <key>Date Modified</key>
+            <date>2011-12-02T03:45:57Z</date>
+            <key>Date Added</key>
+            <date>2006-03-03T02:45:17Z</date>
+            <key>Bit Rate</key>
+            <integer>320</integer>
+            <key>Sample Rate</key>
+            <integer>44100</integer>
+            <key>Play Count</key>
+            <integer>63</integer>
+            <key>Play Date</key>
+            <integer>3553791058</integer>
+            <key>Play Date UTC</key>
+            <date>2016-08-12T00:10:58Z</date>
+            <key>Skip Count</key>
+            <integer>13</integer>
+            <key>Skip Date</key>
+            <date>2017-10-23T20:47:02Z</date>
+            <key>Artwork Count</key>
+            <integer>1</integer>
+            <key>Persistent ID</key>
+            <string>5F5F204D05C1BD23</string>
+            <key>Track Type</key>
+            <string>File</string>
+            <key>File Folder Count</key>
+            <integer>4</integer>
+            <key>Library Folder Count</key>
+            <integer>1</integer>
+            <key>Name</key>
+            <string>All Blues</string>
+            <key>Artist</key>
+            <string>Miles Davis</string>
+            <key>Composer</key>
+            <string>Miles Davis</string>
+            <key>Album</key>
+            <string>Kind Of Blue</string>
+            <key>Genre</key>
+            <string>Jazz</string>
+            <key>Kind</key>
+            <string>MPEG audio file</string>
+            <key>Location</key>
+            <string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Miles%20Davis/Kind%20Of%20Blue/04%20All%20Blues%201.m4a</string>
+        </dict>
+        <key>9428</key>
+        <dict>
+            <key>Track ID</key>
+            <integer>9428</integer>
+            <key>Size</key>
+            <integer>26217348</integer>
+            <key>Total Time</key>
+            <integer>565973</integer>
+            <key>Disc Number</key>
+            <integer>1</integer>
+            <key>Disc Count</key>
+            <integer>1</integer>
+            <key>Track Number</key>
+            <integer>5</integer>
+            <key>Track Count</key>
+            <integer>6</integer>
+            <key>Year</key>
+            <integer>1959</integer>
+            <key>Date Modified</key>
+            <date>2011-12-02T03:46:15Z</date>
+            <key>Date Added</key>
+            <date>2006-03-03T02:46:27Z</date>
+            <key>Bit Rate</key>
+            <integer>320</integer>
+            <key>Sample Rate</key>
+            <integer>44100</integer>
+            <key>Play Count</key>
+            <integer>63</integer>
+            <key>Play Date</key>
+            <integer>3596294750</integer>
+            <key>Play Date UTC</key>
+            <date>2017-12-16T23:45:50Z</date>
+            <key>Skip Count</key>
+            <integer>19</integer>
+            <key>Skip Date</key>
+            <date>2015-08-06T01:16:33Z</date>
+            <key>Artwork Count</key>
+            <integer>1</integer>
+            <key>Persistent ID</key>
+            <string>5F5F204D05C1BD24</string>
+            <key>Track Type</key>
+            <string>File</string>
+            <key>File Folder Count</key>
+            <integer>4</integer>
+            <key>Library Folder Count</key>
+            <integer>1</integer>
+            <key>Name</key>
+            <string>Flamenco Sketches</string>
+            <key>Artist</key>
+            <string>Miles Davis</string>
+            <key>Composer</key>
+            <string>Miles Davis</string>
+            <key>Album</key>
+            <string>Kind Of Blue</string>
+            <key>Genre</key>
+            <string>Jazz</string>
+            <key>Kind</key>
+            <string>MPEG audio file</string>
+            <key>Location</key>
+            <string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Miles%20Davis/Kind%20Of%20Blue/05%20Flamenco%20Sketches%201.m4a</string>
+        </dict>
 	</dict>
 	<key>Playlists</key>
 	<array>
@@ -822,19 +1127,19 @@ namespace ITunesLibraryParserTests.TestObjects {
 			<key>Playlist Items</key>
 			<array>
 				<dict>
-					<key>Track ID</key><integer>7796</integer>
+					<key>Track ID</key><integer>9420</integer>
 				</dict>
 				<dict>
-					<key>Track ID</key><integer>7798</integer>
+					<key>Track ID</key><integer>9422</integer>
 				</dict>
 				<dict>
-					<key>Track ID</key><integer>7800</integer>
+					<key>Track ID</key><integer>9424</integer>
 				</dict>
 				<dict>
-					<key>Track ID</key><integer>7802</integer>
+					<key>Track ID</key><integer>9426</integer>
 				</dict>
 				<dict>
-					<key>Track ID</key><integer>7804</integer>
+					<key>Track ID</key><integer>9428</integer>
 				</dict>
 				<dict>
 					<key>Track ID</key><integer>3712</integer>
@@ -3657,8 +3962,8 @@ namespace ITunesLibraryParserTests.TestObjects {
 		</dict>
 	</array>
 </dict>
-</plist>";
-
+</plist>
+";
         }
     }
 }
