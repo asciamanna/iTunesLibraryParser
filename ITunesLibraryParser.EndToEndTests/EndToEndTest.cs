@@ -18,7 +18,7 @@ namespace ITunesLibraryParser.EndToEndTests
         }
 
         [Test]
-        public void Parser_Reads_Library_From_Filesystem_And_Parses() {
+        public void Tracks_Reads_Library_From_Filesystem_And_Parses() {
             var results = subject.Tracks;
 
             var result = results.First();
