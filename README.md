@@ -13,7 +13,7 @@ The ability to parse playlist information.
 
 ## Project Dependencies
 NUnit 3.10.1  
-
+Moq 4.8.2
 
 ## Contact
 **Anthony Sciamanna**

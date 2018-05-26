@@ -14,7 +14,8 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void ToString_Track() {
-            Assert.That(subject.ToString(), Is.EqualTo(string.Format("Artist: {0} - Track: {1} - Album: {2}", subject.Artist, subject.Name, subject.Album)));
+            Assert.That(subject.ToString(), Is.EqualTo(
+                $"Artist: {subject.Artist} - Track: {subject.Name} - Album: {subject.Album}"));
         }
 
         [Test]
