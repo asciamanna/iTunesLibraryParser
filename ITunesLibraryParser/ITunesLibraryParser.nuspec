@@ -6,13 +6,12 @@
     <title>iTunes Library Parser</title>
     <authors>Anthony Sciamanna</authors>
     <owners>Anthony Sciamanna</owners>
-    <licenseUrl></licenseUrl>
+    <licenseUrl>https://github.com/asciamanna/iTunesLibraryParser/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/asciamanna/iTunesLibraryParser</projectUrl>
-    <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Library that parses an iTunesLibrary file (DTD format)</description>
     <releaseNotes>Initial creation of package</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>iTunes .net</tags>
+    <tags>iTunes .NET</tags>
   </metadata>
 </package>
