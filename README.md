@@ -1,18 +1,24 @@
 iTunesLibraryParser [![Build status](https://ci.appveyor.com/api/projects/status/tsebsc61mqylaejq?svg=true)](https://ci.appveyor.com/project/asciamanna/ituneslibraryparser)
 ===================
-The iTunesLibrary Parser is implemented in C# using LINQ-To-XML.
+The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML (in memory). Given the location of a iTunesMusicLibrary.xml file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). Currently it returns a collection of tracks and collection of playlists. More features will be added periodically.
 
-## Package Access
+## Nuget
+
 The nuget package is [available here](https://www.nuget.org/packages/iTunesLibraryParser/)
 
-## Supported
-It currently only parses iTunes Library Track information. Given the location of the iTunesMusicLibrary.xml file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). It then returns a collection of C# track objects.
-
 ## Usage
-This approach stores all of the data in memory so it would not be recommended for huge libraries. I have tested it on an iTunes library consisting of 9500 tracks and it performs well.
+`
+var library = new ITunesLibrary(".\iTunesLibrary.xml");
+
+var tracks = library.Tracks 
+// returns all tracks in the iTunes Library
+
+var playlists = library.Playlists
+// returns all playlists in the iTunes Library
+`
 
 ## Coming Soon
-The ability to parse playlist information.
+Additional features will be coming soon like filtering tracks by track criteria, returning albums, and returning compilation albums.
 
 ## Project Dependencies
 NUnit 3.10.1  
