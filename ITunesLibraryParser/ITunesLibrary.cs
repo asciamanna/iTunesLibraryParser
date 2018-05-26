@@ -17,7 +17,7 @@ namespace ITunesLibraryParser {
         private IEnumerable<Playlist> playlists;
         private Dictionary<int, Track> tracksById;
 
-        public ITunesLibrary(string xmlFileLocation) : this(xmlFileLocation, new FileSystem()) { }
+        public ITunesLibrary(string xmlFileLocation) : this(xmlFileLocation, new FileSystemWrapper()) { }
 
         public ITunesLibrary(string xmlFileLocation, IFileSystem fileSystem) {
             this.xmlFileLocation = xmlFileLocation;
