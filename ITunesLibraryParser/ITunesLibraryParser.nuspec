@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>iTunes Library Parser</id>
+    <id>iTunesLibraryParser</id>
     <version>$version$</version>
     <title>iTunes Library Parser</title>
     <authors>Anthony Sciamanna</authors>
