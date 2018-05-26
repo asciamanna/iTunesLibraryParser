@@ -7,7 +7,7 @@ The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML (in memory)
 The nuget package is [available here](https://www.nuget.org/packages/iTunesLibraryParser/)
 
 ## Usage
-`
+```
 var library = new ITunesLibrary(".\iTunesLibrary.xml");
 
 var tracks = library.Tracks 
@@ -15,7 +15,7 @@ var tracks = library.Tracks
 
 var playlists = library.Playlists
 // returns all playlists in the iTunes Library
-`
+```
 
 ## Coming Soon
 Additional features will be coming soon like filtering tracks by track criteria, returning albums, and returning compilation albums.
