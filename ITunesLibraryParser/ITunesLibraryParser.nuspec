@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/asciamanna/iTunesLibraryParser/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/asciamanna/iTunesLibraryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Library that parses an iTunesLibrary file (DTD format)</description>
+    <description>Library that parses an iTunesLibrary file (PropertyList format)</description>
     <releaseNotes>Initial creation of package</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>iTunes .NET</tags>
