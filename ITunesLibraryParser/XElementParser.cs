@@ -22,9 +22,14 @@ namespace ITunesLibraryParser {
             return long.Parse(stringValue);
         }
 
+        internal static long? ParseNullableLongValue(XElement track, string keyValue) {
+            var stringValue = ParseStringValue(track, keyValue);
+            return string.IsNullOrEmpty(stringValue) ? (long?)null : long.Parse(stringValue);
+        }
+
         internal static int? ParseNullableIntValue(XElement track, string keyValue) {
             var stringValue = ParseStringValue(track, keyValue);
-            return String.IsNullOrEmpty(stringValue) ? (int?)null : int.Parse(stringValue);
+            return string.IsNullOrEmpty(stringValue) ? (int?)null : int.Parse(stringValue);
         }
 
         internal static DateTime? ParseNullableDateValue(XElement track, string keyValue) {

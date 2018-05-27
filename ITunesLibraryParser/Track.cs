@@ -10,7 +10,7 @@ namespace ITunesLibraryParser {
         public string Album { get; set; }
         public string Genre { get; set; }
         public string Kind { get; set; }
-        public long Size { get; set; }
+        public long? Size { get; set; }
         public string PlayingTime { get; set; }
         public int? TrackNumber { get; set; }
         public int? Year { get; set; }

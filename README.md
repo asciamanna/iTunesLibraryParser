@@ -17,6 +17,9 @@ var playlists = library.Playlists
 // returns all playlists in the iTunes Library
 ```
 
+## Performance Testing
+I have tested the parser against a library of 14,500 tracks and 100 playlists. Each request takes less than 900ms to complete.
+
 ## Coming Soon
 Additional features will be coming soon like filtering tracks by track criteria, returning albums, and returning compilation albums.
 

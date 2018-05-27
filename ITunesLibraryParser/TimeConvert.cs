@@ -2,8 +2,10 @@ using System;
 
 namespace ITunesLibraryParser {
     internal static class TimeConvert {
-        internal static string MillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
-            var totalSeconds = ConvertToSeconds(milliseconds);
+        internal static string MillisecondsToFormattedMinutesAndSeconds(long? milliseconds) {
+            if (!milliseconds.HasValue)
+                return string.Empty;
+            var totalSeconds = ConvertToSeconds(milliseconds.Value);
             var minutes = CalculateTotalMinutes(totalSeconds);
             var seconds = CalculateRemainingSeconds(totalSeconds, minutes);
             return CreateFormattedTime(minutes, seconds);
