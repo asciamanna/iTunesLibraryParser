@@ -123,6 +123,7 @@ namespace ITunesLibraryParserTests {
             var results = subject.Playlists;
 
             var result = results.First();
+            Assert.That(result.PlaylistId, Is.EqualTo(29475));
             Assert.That(result.Name, Is.EqualTo("MILES JAZZ - 3/2/06"));
             var firstTrack = result.Tracks.First();
             Assert.That(firstTrack.Name, Is.EqualTo("So What"));

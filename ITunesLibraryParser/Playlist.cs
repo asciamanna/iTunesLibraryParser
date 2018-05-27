@@ -2,7 +2,8 @@
 
 namespace ITunesLibraryParser {
    public class Playlist {
-       public string Name { get; set; }
+       public int PlaylistId { get; set; }
+        public string Name { get; set; }
        public IEnumerable<Track> Tracks { get; set; }
     }
 }
