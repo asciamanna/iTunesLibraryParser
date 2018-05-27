@@ -158,8 +158,8 @@ namespace ITunesLibraryParserTests.TestObjects {
 			<key>Album</key><string>Undercurrent</string>
 			<key>Genre</key><string>Jazz</string>
 			<key>Kind</key><string>AAC audio file</string>
-			<key>Size</key><integer>14302080</integer>
-			<key>Total Time</key><integer>341360</integer>
+			<key>Size</key><integer></integer>
+			<key>Total Time</key><integer></integer>
 			<key>Disc Number</key><integer>1</integer>
 			<key>Disc Count</key><integer>1</integer>
 			<key>Track Number</key><integer>7</integer>

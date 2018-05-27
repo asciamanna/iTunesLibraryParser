@@ -61,12 +61,11 @@ namespace ITunesLibraryParser {
         public IEnumerable<Playlist> Playlists => playlists ?? (playlists = ParsePlaylists());
 
         private IEnumerable<Playlist> ParsePlaylists() {
-            var playlistElements = ParsePlaylistElements(ReadTextFromFile());
-            return playlistElements.Select(CreatePlaylist);
+            return ParsePlaylistElements().Select(CreatePlaylist);
         }
 
-        public IEnumerable<XElement> ParsePlaylistElements(string libraryContents) {
-            return XDocument.Parse(libraryContents).Descendants("dict").Descendants("array")
+        public IEnumerable<XElement> ParsePlaylistElements() {
+            return XDocument.Parse(ReadTextFromFile()).Descendants("dict").Descendants("array")
                 .Descendants("dict").Where(node => node.Descendants("key").Count() > 1);
         }
 
@@ -84,13 +83,13 @@ namespace ITunesLibraryParser {
         }
 
         private List<Track> BuildTrackList(IEnumerable<int> trackIds) {
-            var tracks = new List<Track>();
+            var playlistTracks = new List<Track>();
             foreach (var trackId in trackIds) {
                 TracksByIdLookup.TryGetValue(trackId, out var matchingTrack);
                 if (matchingTrack != null)
-                    tracks.Add(matchingTrack);
+                    playlistTracks.Add(matchingTrack);
             }
-            return tracks;
+            return playlistTracks;
         }
 
         private Dictionary<int, Track> TracksByIdLookup {

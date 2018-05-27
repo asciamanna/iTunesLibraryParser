@@ -12,6 +12,7 @@ namespace ITunesLibraryParserTests {
         private Mock<IFileSystem> fileSystem;
         private ITunesLibrary subject;
         private const string Filepath = "itunes-library-file-location";
+        private const string SongWithBadData = "Stairway To The Stars";
 
         [SetUp]
         public void Setup() {
@@ -89,22 +90,30 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
+        public void Tracks_Handles_Missing_Size_Values_In_Library() {
+            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var result = subject.Tracks.First(t => t.Name == SongWithBadData);
+
+            Assert.That(result.Size, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public void Tracks_Handles_Missing_TotalTime_Values_In_Library() {
+            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var result = subject.Tracks.First(t => t.Name == SongWithBadData);
+
+            Assert.That(result.PlayingTime, Is.Null.Or.Empty);
+        }
+
+        [Test]
         public void Playlists_Parses_And_Returns_All_Playlists() {
             fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var results = subject.Playlists;
 
             Assert.That(results.Count(), Is.EqualTo(15));
-        }
-
-        [Test]
-        public void Playlists_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
-
-            var results = subject.Playlists;
-            results = subject.Playlists;
-
-            fileSystem.Verify(fs => fs.ReadXmlTextFromFile(Filepath), Times.Once);
         }
 
         [Test]
