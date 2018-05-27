@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ITunesLibraryParserTests.TestObjects {
+﻿namespace ITunesLibraryParserTests.TestObjects {
     public static class TestLibraryData {
         public static string Create() {
             return @"<?xml version='1.0' encoding='UTF-8'?>
