@@ -1,8 +1,8 @@
 using System;
 
 namespace ITunesLibraryParser {
-    public static class TimeConvert {
-        public static string MillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
+    internal static class TimeConvert {
+        internal static string MillisecondsToFormattedMinutesAndSeconds(long milliseconds) {
             var totalSeconds = ConvertToSeconds(milliseconds);
             var minutes = CalculateTotalMinutes(totalSeconds);
             var seconds = CalculateRemainingSeconds(totalSeconds, minutes);

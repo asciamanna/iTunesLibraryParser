@@ -2,11 +2,11 @@
 
 namespace ITunesLibraryParser {
     public interface IFileSystem {
-        string ReadTextFromFile(string fileLocation);
+        string ReadXmlTextFromFile(string fileLocation);
     }
 
     public class FileSystemWrapper : IFileSystem {
-        public string ReadTextFromFile(string fileLocation) {
+        public string ReadXmlTextFromFile(string fileLocation) {
             return File.ReadAllText(fileLocation);
         }
     }

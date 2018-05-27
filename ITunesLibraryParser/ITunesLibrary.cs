@@ -4,23 +4,18 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    public interface IITunesLibrary {
-        IEnumerable<Track> Tracks { get; }
-        IEnumerable<Playlist> Playlists { get; }
-    }
+    public class ITunesLibrary {
 
-    public class ITunesLibrary : IITunesLibrary {
         private readonly IFileSystem fileSystem;
-        private readonly string xmlFileLocation;
-        private string fileContents;
+        private readonly string xmlLibraryFileLocation;
         private IEnumerable<Track> tracks;
         private IEnumerable<Playlist> playlists;
-        private Dictionary<int, Track> tracksById;
+        private Dictionary<int, Track> tracksByIdLookup;
 
-        public ITunesLibrary(string xmlFileLocation) : this(xmlFileLocation, new FileSystemWrapper()) { }
+        public ITunesLibrary(string xmlLibraryFileLocation) : this(xmlLibraryFileLocation, new FileSystemWrapper()) { }
 
-        public ITunesLibrary(string xmlFileLocation, IFileSystem fileSystem) {
-            this.xmlFileLocation = xmlFileLocation;
+        public ITunesLibrary(string xmlLibraryFileLocation, IFileSystem fileSystem) {
+            this.xmlLibraryFileLocation = xmlLibraryFileLocation;
             this.fileSystem = fileSystem;
         }
 
@@ -31,12 +26,13 @@ namespace ITunesLibraryParser {
         }
 
         private IEnumerable<XElement> ParseTrackElements() {
-            return from x in XDocument.Parse(FileContents).Descendants("dict").Descendants("dict").Descendants("dict")
+            return from x in XDocument.Parse(ReadTextFromFile()).Descendants("dict").Descendants("dict").Descendants("dict")
                    where x.Descendants("key").Count() > 1
                    select x;
         }
-
-        private string FileContents => fileContents ?? (fileContents = fileSystem.ReadTextFromFile(xmlFileLocation));
+        private string ReadTextFromFile() {
+            return fileSystem.ReadXmlTextFromFile(xmlLibraryFileLocation);
+        }
 
         private static Track CreateTrack(XElement trackElement) {
             return new Track {
@@ -65,7 +61,7 @@ namespace ITunesLibraryParser {
         public IEnumerable<Playlist> Playlists => playlists ?? (playlists = ParsePlaylists());
 
         private IEnumerable<Playlist> ParsePlaylists() {
-            var playlistElements = ParsePlaylistElements(FileContents);
+            var playlistElements = ParsePlaylistElements(ReadTextFromFile());
             return playlistElements.Select(CreatePlaylist);
         }
 
@@ -84,21 +80,21 @@ namespace ITunesLibraryParser {
         private IEnumerable<Track> FindTracksInLibrary(XElement playlistElement) {
             var trackIdElements = playlistElement.Descendants("dict").Descendants("integer");
             var trackIds = trackIdElements.Select(t => t.Value).Select(Int32.Parse);
-            return FindTrackList(trackIds);
+            return BuildTrackList(trackIds);
         }
 
-        private List<Track> FindTrackList(IEnumerable<int> trackIds) {
+        private List<Track> BuildTrackList(IEnumerable<int> trackIds) {
             var tracks = new List<Track>();
             foreach (var trackId in trackIds) {
-                TracksById.TryGetValue(trackId, out var matchingTrack);
+                TracksByIdLookup.TryGetValue(trackId, out var matchingTrack);
                 if (matchingTrack != null)
                     tracks.Add(matchingTrack);
             }
             return tracks;
         }
 
-        private Dictionary<int, Track> TracksById {
-            get { return tracksById ?? (tracksById = Tracks.ToDictionary(t => t.TrackId)); }
+        private Dictionary<int, Track> TracksByIdLookup {
+            get { return tracksByIdLookup ?? (tracksByIdLookup = Tracks.ToDictionary(t => t.TrackId)); }
         }
     }
 }
