@@ -8,7 +8,7 @@ The nuget package is [available here](https://www.nuget.org/packages/iTunesLibra
 
 ## Usage
 ```
-var library = new ITunesLibrary(".\iTunesLibrary.xml");
+var library = new ITunesLibrary("iTunesLibrary.xml");
 
 var tracks = library.Tracks 
 // returns all tracks in the iTunes Library
