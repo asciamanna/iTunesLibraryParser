@@ -45,10 +45,13 @@
   <ItemGroup>
     <Compile Include="FileSystemWrapper.cs" />
     <Compile Include="ITunesLibrary.cs" />
+    <Compile Include="ParserBase.cs" />
     <Compile Include="Playlist.cs" />
+    <Compile Include="PlaylistParser.cs" />
     <Compile Include="TimeConvert.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackParser.cs" />
     <Compile Include="XElementParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
