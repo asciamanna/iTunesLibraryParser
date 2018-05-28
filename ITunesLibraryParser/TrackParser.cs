@@ -4,8 +4,8 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    public class TrackParser {
-        public IEnumerable<Track> ParseTracks(string libraryContents) {
+    internal class TrackParser {
+        internal IEnumerable<Track> ParseTracks(string libraryContents) {
             return ParseTrackElements(libraryContents).Select(CreateTrack);
         }
 

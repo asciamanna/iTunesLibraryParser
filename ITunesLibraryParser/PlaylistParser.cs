@@ -4,13 +4,13 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    public class PlaylistParser {
+    internal class PlaylistParser {
         private readonly Dictionary<int, Track> trackLookup;
 
-        public PlaylistParser(IEnumerable<Track> tracks) {
+        internal PlaylistParser(IEnumerable<Track> tracks) {
             trackLookup = tracks.ToDictionary(t => t.TrackId);
         }
-        public IEnumerable<Playlist> ParsePlaylists(string libraryContents) {
+        internal IEnumerable<Playlist> ParsePlaylists(string libraryContents) {
             return ParsePlaylistElements(libraryContents).Select(CreatePlaylist);
         }
         
