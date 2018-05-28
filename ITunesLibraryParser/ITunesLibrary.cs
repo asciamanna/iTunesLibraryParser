@@ -10,7 +10,7 @@ namespace ITunesLibraryParser {
         private readonly string xmlLibraryFileLocation;
         private IEnumerable<Track> tracks;
         private IEnumerable<Playlist> playlists;
-        private Dictionary<int, Track> tracksByIdLookup;
+        private Dictionary<int, Track> trackLookup;
 
         public ITunesLibrary(string xmlLibraryFileLocation) : this(xmlLibraryFileLocation, new FileSystemWrapper()) { }
 
@@ -26,12 +26,12 @@ namespace ITunesLibraryParser {
         }
 
         private IEnumerable<XElement> ParseTrackElements() {
-            return from x in XDocument.Parse(ReadTextFromFile()).Descendants("dict").Descendants("dict").Descendants("dict")
+            return from x in XDocument.Parse(ReadTextFromLibraryFile()).Descendants("dict").Descendants("dict").Descendants("dict")
                    where x.Descendants("key").Count() > 1
                    select x;
         }
-        private string ReadTextFromFile() {
-            return fileSystem.ReadXmlTextFromFile(xmlLibraryFileLocation);
+        private string ReadTextFromLibraryFile() {
+            return fileSystem.ReadTextFromFile(xmlLibraryFileLocation);
         }
 
         private static Track CreateTrack(XElement trackElement) {
@@ -65,7 +65,7 @@ namespace ITunesLibraryParser {
         }
 
         public IEnumerable<XElement> ParsePlaylistElements() {
-            return XDocument.Parse(ReadTextFromFile()).Descendants("dict").Descendants("array")
+            return XDocument.Parse(ReadTextFromLibraryFile()).Descendants("dict").Descendants("array")
                 .Descendants("dict").Where(node => node.Descendants("key").Count() > 1);
         }
 
@@ -86,15 +86,15 @@ namespace ITunesLibraryParser {
         private List<Track> BuildTrackList(IEnumerable<int> trackIds) {
             var playlistTracks = new List<Track>();
             foreach (var trackId in trackIds) {
-                TracksByIdLookup.TryGetValue(trackId, out var matchingTrack);
+                TrackLookup.TryGetValue(trackId, out var matchingTrack);
                 if (matchingTrack != null)
                     playlistTracks.Add(matchingTrack);
             }
             return playlistTracks;
         }
 
-        private Dictionary<int, Track> TracksByIdLookup {
-            get { return tracksByIdLookup ?? (tracksByIdLookup = Tracks.ToDictionary(t => t.TrackId)); }
+        private Dictionary<int, Track> TrackLookup {
+            get { return trackLookup ?? (trackLookup = Tracks.ToDictionary(t => t.TrackId)); }
         }
     }
 }

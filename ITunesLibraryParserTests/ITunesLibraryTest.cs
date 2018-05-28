@@ -22,7 +22,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Parses_All_Tracks_From_Library() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks;
 
@@ -31,17 +31,17 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var results = subject.Tracks;
             results = subject.Tracks;
 
-            fileSystem.Verify(fs => fs.ReadXmlTextFromFile(Filepath), Times.Once);
+            fileSystem.Verify(fs => fs.ReadTextFromFile(Filepath), Times.Once);
         }
 
         [Test]
         public void Tracks_Parses_All_Fields_On_Track() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First();
 
@@ -66,7 +66,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Populates_Null_Values_For_Nonexistent_Elements() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First();
 
@@ -75,14 +75,14 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Sets_Boolean_Properties_To_False_For_Nonexistent_Boolean_Nodes() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
         }
 
         [Test]
         public void Tracks_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First();
 
@@ -91,7 +91,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Handles_Missing_Size_Values_In_Library() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First(t => t.Name == SongWithBadData);
 
@@ -100,7 +100,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Tracks_Handles_Missing_TotalTime_Values_In_Library() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First(t => t.Name == SongWithBadData);
 
@@ -109,7 +109,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Playlists_Parses_And_Returns_All_Playlists() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var results = subject.Playlists;
 
@@ -118,7 +118,7 @@ namespace ITunesLibraryParserTests {
 
         [Test]
         public void Playlists_Adds_Each_Track_To_Playlist() {
-            fileSystem.Setup(fs => fs.ReadXmlTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var results = subject.Playlists;
 
