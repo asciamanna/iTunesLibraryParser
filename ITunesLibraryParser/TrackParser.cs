@@ -4,15 +4,14 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    internal class TrackParser {
+    internal class TrackParser : ParserBase {
+
         internal IEnumerable<Track> ParseTracks(string libraryContents) {
-            return ParseTrackElements(libraryContents).Select(CreateTrack);
+            return ParseElements(libraryContents).Select(CreateTrack);
         }
 
-        private IEnumerable<XElement> ParseTrackElements(string libraryContents) {
-            return from x in XDocument.Parse(libraryContents).Descendants("dict").Descendants("dict").Descendants("dict")
-                where x.Descendants("key").Count() > 1
-                select x;
+        protected override string GetCollectionNodeName() {
+            return "dict";
         }
 
         private static Track CreateTrack(XElement trackElement) {

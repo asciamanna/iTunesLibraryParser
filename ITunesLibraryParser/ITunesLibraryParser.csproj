@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="FileSystemWrapper.cs" />
     <Compile Include="ITunesLibrary.cs" />
+    <Compile Include="ParserBase.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="PlaylistParser.cs" />
     <Compile Include="TimeConvert.cs" />
