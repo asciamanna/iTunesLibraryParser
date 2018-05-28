@@ -12,9 +12,9 @@ namespace ITunesLibraryParser {
         public ITunesLibrary(string xmlLibraryFileLocation) : this(xmlLibraryFileLocation, new FileSystemWrapper()) { }
 
         public ITunesLibrary(string xmlLibraryFileLocation, IFileSystem fileSystem) {
-            this.trackParser = new TrackParser();
             this.xmlLibraryFileLocation = xmlLibraryFileLocation;
             this.fileSystem = fileSystem;
+            this.trackParser = new TrackParser();
         }
 
         public IEnumerable<Track> Tracks => tracks ?? (tracks = trackParser.ParseTracks(ReadTextFromLibraryFile()));
