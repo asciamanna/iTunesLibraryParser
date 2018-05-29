@@ -12,6 +12,6 @@
     <description>Parses an iTunes Library xml file (PropertyList format)</description>
     <releaseNotes>Supports parsing Track and Playlist information</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>iTunes xml plist PropertyList</tags>
+    <tags>itunes xml plist PropertyList music</tags>
   </metadata>
 </package>
