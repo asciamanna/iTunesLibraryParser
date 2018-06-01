@@ -2,7 +2,6 @@ iTunesLibraryParser
 ===================
 [![Build status](https://ci.appveyor.com/api/projects/status/tsebsc61mqylaejq?svg=true)](https://ci.appveyor.com/project/asciamanna/ituneslibraryparser)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f1e8648cc74b158fbbb09528fd9e2e)](https://app.codacy.com/app/asciamanna/iTunesLibraryParser?utm_source=github.com&utm_medium=referral&utm_content=asciamanna/iTunesLibraryParser&utm_campaign=badger)
-
 [![NuGet version](https://img.shields.io/nuget/v/ITunesLibraryParser.svg)](https://www.nuget.org/packages/iTunesLibraryParser/)
 
 
