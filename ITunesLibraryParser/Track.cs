@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace ITunesLibraryParser {
-    public class Track {
+    public class Track : IEquatable<Track> {
         public int TrackId { get; set; }
         public string Name { get; set; }
         public string Artist { get; set; }
@@ -30,7 +30,7 @@ namespace ITunesLibraryParser {
             return MemberwiseClone() as Track;
         }
 
-        protected bool Equals(Track other) {
+        public bool Equals(Track other) {
             return TrackId == other.TrackId && string.Equals(Name, other.Name) && string.Equals(Artist, other.Artist) &&
               string.Equals(AlbumArtist, other.AlbumArtist) && string.Equals(Composer, other.Composer) &&
               string.Equals(Album, other.Album) && string.Equals(Genre, other.Genre) &&
@@ -72,5 +72,4 @@ namespace ITunesLibraryParser {
             }
         }
     }
-
 }
