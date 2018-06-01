@@ -1,10 +1,12 @@
-iTunesLibraryParser [![Build status](https://ci.appveyor.com/api/projects/status/tsebsc61mqylaejq?svg=true)](https://ci.appveyor.com/project/asciamanna/ituneslibraryparser)
+iTunesLibraryParser 
+===================
+[![Build status](https://ci.appveyor.com/api/projects/status/tsebsc61mqylaejq?svg=true)](https://ci.appveyor.com/project/asciamanna/ituneslibraryparser)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f1e8648cc74b158fbbb09528fd9e2e)](https://app.codacy.com/app/asciamanna/iTunesLibraryParser?utm_source=github.com&utm_medium=referral&utm_content=asciamanna/iTunesLibraryParser&utm_campaign=badger)
 
 [![NuGet version](https://img.shields.io/nuget/v/ITunesLibraryParser.svg)](https://www.nuget.org/packages/iTunesLibraryParser/)
 
-===================
-The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML (in memory). Given the location of a iTunesMusicLibrary.xml file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). Currently it returns a collection of tracks and collection of playlists. More features will be added periodically.
+
+The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML. Given the location of a iTunes MusicLibrary XML file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). It returns a collection of tracks as well as playlists. More features will be added periodically.
 
 ## Nuget
 
