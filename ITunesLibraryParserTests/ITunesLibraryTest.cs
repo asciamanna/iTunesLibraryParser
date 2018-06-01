@@ -37,6 +37,7 @@ namespace ITunesLibraryParserTests {
             results = subject.Tracks;
 
             fileSystem.Verify(fs => fs.ReadTextFromFile(Filepath), Times.Once);
+            Assert.That(results, Is.Not.Null);
         }
 
         [Test]
