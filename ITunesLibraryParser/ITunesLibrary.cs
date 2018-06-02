@@ -3,12 +3,12 @@
 namespace ITunesLibraryParser {
     public class ITunesLibrary {
 
-        private readonly IFileSystem fileSystem;
         private readonly string xmlLibraryFileLocation;
-        private IEnumerable<Playlist> playlists;
+        private readonly IFileSystem fileSystem;
         private readonly TrackParser trackParser;
-        private IEnumerable<Track> tracks;
         private readonly AlbumParser albumParser;
+        private IEnumerable<Track> tracks;
+        private IEnumerable<Playlist> playlists;
         private IEnumerable<Album> albums;
 
         public ITunesLibrary(string xmlLibraryFileLocation) : this(xmlLibraryFileLocation, new FileSystemWrapper()) { }
