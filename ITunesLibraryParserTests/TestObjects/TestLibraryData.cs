@@ -40,7 +40,6 @@
 			<key>Play Date UTC</key><date>2012-08-15T21:04:59Z</date>
 			<key>Skip Count</key><integer>3</integer>
 			<key>Skip Date</key><date>2012-09-21T10:54:14Z</date>
-      <key>Compilation</key><true/>
 			<key>Artwork Count</key><integer>1</integer>
 			<key>Persistent ID</key><string>C7B8EDD04F93004D</string>
 			<key>Track Type</key><string>File</string>
@@ -73,7 +72,6 @@
 			<key>Play Date UTC</key><date>2012-08-09T10:57:04Z</date>
 			<key>Skip Count</key><integer>1</integer>
 			<key>Skip Date</key><date>2012-05-30T02:28:28Z</date>
-      <key>Compilation</key><true/>
 			<key>Artwork Count</key><integer>1</integer>
 			<key>Persistent ID</key><string>6B8ABBF0C8A3C76B</string>
 			<key>Track Type</key><string>File</string>
@@ -343,6 +341,7 @@
 			<key>Composer</key><string>George Gershwin</string>
 			<key>Album</key><string>Genius Of Modern Music, Vol. 2: RVG Edition</string>
 			<key>Genre</key><string>Jazz</string>
+            <key>Compilation</key><true/>
 			<key>Kind</key><string>AAC audio file</string>
 			<key>Size</key><integer>9011980</integer>
 			<key>Total Time</key><integer>210320</integer>

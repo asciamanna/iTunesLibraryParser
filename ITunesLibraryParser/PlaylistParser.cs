@@ -20,7 +20,7 @@ namespace ITunesLibraryParser {
 
         private Playlist CreatePlaylist(XElement playlistElement) {
             return new Playlist {
-                PlaylistId = Int32.Parse(XElementParser.ParseStringValue(playlistElement, "Playlist ID")),
+                PlaylistId = int.Parse(XElementParser.ParseStringValue(playlistElement, "Playlist ID")),
                 Name = XElementParser.ParseStringValue(playlistElement, "Name"),
                 Tracks = FindTracksInLibrary(playlistElement)
             };
@@ -28,7 +28,7 @@ namespace ITunesLibraryParser {
 
         private IEnumerable<Track> FindTracksInLibrary(XElement playlistElement) {
             var trackIdElements = playlistElement.Descendants("dict").Descendants("integer");
-            var trackIds = trackIdElements.Select(t => t.Value).Select(Int32.Parse);
+            var trackIds = trackIdElements.Select(t => t.Value).Select(int.Parse);
             return BuildTrackList(trackIds);
         }
 

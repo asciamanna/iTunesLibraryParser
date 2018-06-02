@@ -13,6 +13,8 @@ namespace ITunesLibraryParserTests {
         private ITunesLibrary subject;
         private const string Filepath = "itunes-library-file-location";
         private const string SongWithBadData = "Stairway To The Stars";
+        private const string AlbumWithMultipleArtists = "Bags Meets Wes";
+        private const string AlbumNameForMultipleAlbums = "Undercurrent";
 
         [SetUp]
         public void Setup() {
@@ -50,7 +52,7 @@ namespace ITunesLibraryParserTests {
             Assert.That(result.Name, Is.EqualTo("Dream Gypsy"));
             Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
             Assert.That(result.Composer, Is.EqualTo("Judith Veevers"));
-            Assert.That(result.Album, Is.EqualTo("Undercurrent"));
+            Assert.That(result.Album, Is.EqualTo(AlbumNameForMultipleAlbums));
             Assert.That(result.Genre, Is.EqualTo("Jazz"));
             Assert.That(result.Kind, Is.EqualTo("AAC audio file"));
             Assert.That(result.Size, Is.EqualTo(11550486));
@@ -62,7 +64,7 @@ namespace ITunesLibraryParserTests {
             Assert.That(result.SampleRate, Is.EqualTo(44100));
             Assert.That(result.PlayCount, Is.EqualTo(11));
             Assert.That(result.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 15)));
-            Assert.That(result.PartOfCompilation, Is.True);
+            Assert.That(result.PartOfCompilation, Is.False);
         }
 
         [Test]
@@ -84,10 +86,10 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
-        public void Tracks_Sets_Boolean_Properties_To_False_For_Nonexistent_Boolean_Nodes() {
+        public void Tracks_Sets_Boolean_Properties_To_True_For_Existing_Boolean_Nodes() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
-            Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(2));
+            Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(1));
         }
 
         [Test]
@@ -147,13 +149,31 @@ namespace ITunesLibraryParserTests {
 
             var result = results.First();
             Assert.That(results.Count(), Is.GreaterThan(0));
-            Assert.That(result.AlbumArtist, Is.Null.Or.Empty);
             Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
             Assert.That(result.AlbumName, Is.EqualTo("Undercurrent"));
             Assert.That(result.Genre, Is.EqualTo("Jazz"));
-            Assert.That(result.IsCompilation, Is.True);
+            Assert.That(result.IsCompilation, Is.False);
             Assert.That(result.Year, Is.EqualTo(1962));
             Assert.That(result.Tracks.Count(), Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Albums_Uses_AlbumArtist_For_Artist_When_It_Exists() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Albums;
+ 
+            var result = results.First(r => r.AlbumName.StartsWith(AlbumWithMultipleArtists));
+            Assert.That(result.Artist, Is.EqualTo(result.Tracks.First().AlbumArtist));
+        }
+
+        [Test]
+        public void Albums_Uses_VariousArtists_As_Artist_When_Compilation_And_No_AlbumArtist_Defined() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Albums;
+
+            Assert.That(results, Has.Some.Property("Artist").EqualTo("Various Artists"));
         }
 
         [Test]
@@ -162,7 +182,7 @@ namespace ITunesLibraryParserTests {
                 .Returns(TestLibraryData.Create());
 
             var results = subject.Albums;
-
+           
             Assert.That(results.Any(a => a.Tracks.GroupBy(t => t.Artist).Count() > 1), Is.True);
         }
 
@@ -173,8 +193,7 @@ namespace ITunesLibraryParserTests {
 
             var result = subject.Albums;
 
-            Assert.That(result.Count(a => a.AlbumName == "Undercurrent"), Is.EqualTo(2));
-
+            Assert.That(result.Count(a => a.AlbumName == AlbumNameForMultipleAlbums), Is.EqualTo(2));
         }
     }
 }

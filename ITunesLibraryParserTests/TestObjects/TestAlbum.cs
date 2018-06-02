@@ -6,8 +6,7 @@ namespace ITunesLibraryParserTests.TestObjects {
         public static Album Create() {
             return new Album {
                 AlbumName = "Bags Meets Wes",
-                AlbumArtist = "Milt Jackson & Wes Montgomery",
-                Artist = "Wes Montgomery",
+                Artist = "Milt Jackson & Wes Montgomery",
                 Tracks = new List<Track> {
                     new Track {
                         Name = "Jingles"

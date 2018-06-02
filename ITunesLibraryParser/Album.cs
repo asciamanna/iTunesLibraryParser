@@ -6,15 +6,13 @@ namespace ITunesLibraryParser {
     public class Album : IEquatable<Album> {
         public string Artist { get; set; }
         public string AlbumName { get; set; }
-        public string AlbumArtist { get; set; }
         public string Genre { get; set; }
         public int? Year { get; set; }
         public bool IsCompilation { get; set; }
         public IEnumerable<Track> Tracks { get; set; }
 
         public override string ToString() {
-            var displayArtist = string.IsNullOrWhiteSpace(AlbumArtist) ? Artist : AlbumArtist;
-            return $"{displayArtist} - {AlbumName} - {Tracks.Count()} tracks";
+            return $"{Artist} - {AlbumName} - {Tracks.Count()} tracks";
         }
 
         public Album Copy() {
@@ -26,7 +24,6 @@ namespace ITunesLibraryParser {
             if (ReferenceEquals(this, other)) return true;
             return string.Equals(Artist, other.Artist) && 
                    string.Equals(AlbumName, other.AlbumName) && 
-                   string.Equals(AlbumArtist, other.AlbumArtist) && 
                    string.Equals(Genre, other.Genre) && 
                    Year == other.Year && 
                    IsCompilation == other.IsCompilation && 
@@ -44,7 +41,6 @@ namespace ITunesLibraryParser {
             unchecked {
                 var hashCode = (Artist != null ? Artist.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (AlbumName != null ? AlbumName.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (AlbumArtist != null ? AlbumArtist.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Genre != null ? Genre.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ Year.GetHashCode();
                 hashCode = (hashCode * 397) ^ IsCompilation.GetHashCode();

@@ -23,7 +23,9 @@ var playlists = library.Playlists
 ```
 
 ## Performance Testing
-I have tested the parser against a library of 14,500 tracks and 100 playlists. Each request takes less than 900ms to complete.
+14,500 tracks -> 800ms  
+2400 albums -> 1.4s  
+100 playlists -> 2.2s  
 
 ## Coming Soon
 Additional features will be coming soon like filtering tracks by track criteria, returning albums, and returning compilation albums.

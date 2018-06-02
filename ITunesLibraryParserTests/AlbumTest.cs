@@ -14,20 +14,8 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
-        public void Album_ToString_Uses_AlbumArtist_If_Exists() {
-            subject.AlbumArtist = "Milt Jackson & Wes Montgomery";
-
+        public void Album_ToString() {
             Assert.That(subject.ToString(), 
-                Is.EqualTo($"{subject.AlbumArtist} - {subject.AlbumName} - {subject.Tracks.Count()} tracks"));
-        }
-
-        [TestCase("")]
-        [TestCase(" ")]
-        [TestCase(null)]
-        public void Album_ToString_Uses_Artist_If_AlbumArtist_Doesnt_Exist(string albumArtist) {
-            subject.AlbumArtist = albumArtist;
-
-            Assert.That(subject.ToString(),
                 Is.EqualTo($"{subject.Artist} - {subject.AlbumName} - {subject.Tracks.Count()} tracks"));
         }
 
