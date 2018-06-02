@@ -31,7 +31,7 @@ var playlists = library.Playlists
 100 playlists -> 2.2s  
 
 ## Coming Soon
-Additional features will be coming soon like filtering tracks by track criteria, returning albums, and returning compilation albums.
+Additional features will be coming soon like filtering tracks by track criteria.
 
 ## Project Dependencies
 NUnit 3.10.1  
