@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace ITunesLibraryParser {
     internal class AlbumParser {
+        private static string CompilationArtistName = "Various Artists";
 
         internal IEnumerable<Album> ParseAlbums(IEnumerable<Track> tracks) {
             var albumGroups = tracks.GroupBy(t => t.Album);
@@ -23,7 +24,7 @@ namespace ITunesLibraryParser {
         }
 
         private static bool IsCompilation(IEnumerable<Track> albumGroup) {
-            return albumGroup.Any(t => t.PartOfCompilation || t.AlbumArtist == "Various Artists");
+            return albumGroup.Any(t => t.PartOfCompilation || t.AlbumArtist == CompilationArtistName);
         }
 
         private static void SubGroupByArtistToCreateAlbums(IEnumerable<Track> albumGroup, List<Album> albums) {
@@ -45,7 +46,7 @@ namespace ITunesLibraryParser {
         private static string GetArtistName(IEnumerable<Track> tracks) {
             if (tracks.Any(t => !string.IsNullOrWhiteSpace(t.AlbumArtist)))
                  return tracks.Select(t => t.AlbumArtist).First(aa => !string.IsNullOrWhiteSpace(aa));
-            return tracks.Any(t => t.PartOfCompilation) ? "Various Artists" : tracks.Select(t => t.Artist).First();
+            return tracks.Any(t => t.PartOfCompilation) ? CompilationArtistName : tracks.Select(t => t.Artist).First();
         }
     }
 }
