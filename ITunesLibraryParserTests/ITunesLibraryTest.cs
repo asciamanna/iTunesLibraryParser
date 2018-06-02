@@ -26,7 +26,7 @@ namespace ITunesLibraryParserTests {
 
             var result = subject.Tracks;
 
-            Assert.That(result.Count(), Is.EqualTo(30));
+            Assert.That(result.Count(), Is.EqualTo(36));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace ITunesLibraryParserTests {
         }
 
         [Test]
-        public void Tracks_Parses_All_Fields_On_Track() {
+        public void Tracks_Parses_Fields_On_Track() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
 
             var result = subject.Tracks.First();
@@ -63,6 +63,15 @@ namespace ITunesLibraryParserTests {
             Assert.That(result.PlayCount, Is.EqualTo(11));
             Assert.That(result.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 15)));
             Assert.That(result.PartOfCompilation, Is.True);
+        }
+
+        [Test]
+        public void Tracks_Parses_AlbumArtist_Node_If_Present() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Tracks;
+
+            Assert.That(results.Any(t => !string.IsNullOrWhiteSpace(t.AlbumArtist)), Is.True);
         }
 
         [Test]
@@ -128,6 +137,51 @@ namespace ITunesLibraryParserTests {
             Assert.That(result.Name, Is.EqualTo("MILES JAZZ - 3/2/06"));
             var firstTrack = result.Tracks.First();
             Assert.That(firstTrack.Name, Is.EqualTo("So What"));
+        }
+
+        [Test]
+        public void Albums_Groups_Tracks_Into_Albums_From_Library() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+
+            var results = subject.Albums;
+
+            var result = results.First();
+            Assert.That(results.Count(), Is.GreaterThan(0));
+            Assert.That(result.AlbumArtist, Is.Null.Or.Empty);
+            Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
+            Assert.That(result.AlbumName, Is.EqualTo("Undercurrent"));
+            Assert.That(result.Genre, Is.EqualTo("Jazz"));
+            Assert.That(result.IsCompilation, Is.True);
+            Assert.That(result.Year, Is.EqualTo(1962));
+            Assert.That(result.Tracks.Count(), Is.EqualTo(8));
+
+            foreach (var album in results) {
+                Console.WriteLine($"{album}");
+                foreach (var track in album.Tracks) {
+                    Console.WriteLine($"{track}");
+                }
+            }
+        }
+
+        [Test]
+        public void Albums_Groups_Tracks_With_Different_Artists_From_Same_Album() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath))
+                .Returns(TestLibraryData.Create());
+
+            var results = subject.Albums;
+
+            Assert.That(results.Any(a => a.Tracks.GroupBy(t => t.Artist).Count() > 1), Is.True);
+        }
+
+        [Test]
+        public void Albums_Groups_Tracks_From_Different_Albums_With_Same_Name() {
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath))
+                .Returns(TestLibraryData.Create());
+
+            var result = subject.Albums;
+
+            Assert.That(result.Count(a => a.AlbumName == "Undercurrent"), Is.EqualTo(2));
+
         }
     }
 }

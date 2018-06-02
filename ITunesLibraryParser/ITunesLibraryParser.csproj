@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album.cs" />
+    <Compile Include="AlbumParser.cs" />
     <Compile Include="FileSystemWrapper.cs" />
     <Compile Include="ITunesLibrary.cs" />
-    <Compile Include="ParserBase.cs" />
+    <Compile Include="LibraryItemParserBase.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="PlaylistParser.cs" />
     <Compile Include="TimeConvert.cs" />

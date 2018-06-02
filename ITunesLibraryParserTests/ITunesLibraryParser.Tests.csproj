@@ -62,9 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumTest.cs" />
     <Compile Include="ITunesLibraryTest.cs" />
     <Compile Include="PlaylistTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestObjects\TestAlbum.cs" />
     <Compile Include="TestObjects\TestLibraryData.cs" />
     <Compile Include="TestObjects\TestPlaylist.cs" />
     <Compile Include="TestObjects\TestTrack.cs" />

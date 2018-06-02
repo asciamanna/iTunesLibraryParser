@@ -21,6 +21,7 @@ namespace ITunesLibraryParserTests {
         [Test]
         public void Copy() {
             var result = subject.Copy();
+
             Assert.That(result, Is.EqualTo(subject));
             Assert.That(result, Is.Not.SameAs(subject));
         }

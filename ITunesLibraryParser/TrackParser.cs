@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    internal class TrackParser : ParserBase {
+    internal class TrackParser : LibraryItemParserBase {
 
         internal IEnumerable<Track> ParseTracks(string libraryContents) {
             return ParseElements(libraryContents).Select(CreateTrack);
@@ -19,7 +19,7 @@ namespace ITunesLibraryParser {
                 TrackId = Int32.Parse(XElementParser.ParseStringValue(trackElement, "Track ID")),
                 Name = XElementParser.ParseStringValue(trackElement, "Name"),
                 Artist = XElementParser.ParseStringValue(trackElement, "Artist"),
-                AlbumArtist = XElementParser.ParseStringValue(trackElement, "AlbumArtist"),
+                AlbumArtist = XElementParser.ParseStringValue(trackElement, "Album Artist"),
                 Composer = XElementParser.ParseStringValue(trackElement, "Composer"),
                 Album = XElementParser.ParseStringValue(trackElement, "Album"),
                 Genre = XElementParser.ParseStringValue(trackElement, "Genre"),

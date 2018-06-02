@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace ITunesLibraryParser {
-    internal class PlaylistParser : ParserBase {
+    internal class PlaylistParser : LibraryItemParserBase {
         private readonly Dictionary<int, Track> trackLookup;
 
         internal PlaylistParser(IEnumerable<Track> tracks) {

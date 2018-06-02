@@ -805,6 +805,199 @@
 			<key>File Folder Count</key><integer>4</integer>
 			<key>Library Folder Count</key><integer>1</integer>
 		</dict>
+        <key>20828</key>
+		<dict>
+			<key>Track ID</key><integer>20828</integer>
+			<key>Size</key><integer>19901972</integer>
+			<key>Total Time</key><integer>440360</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-18T21:46:02Z</date>
+			<key>Date Added</key><date>2013-05-18T21:02:16Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3568904730</integer>
+			<key>Play Date UTC</key><date>2017-02-02T23:25:30Z</date>
+			<key>Skip Count</key><integer>5</integer>
+			<key>Skip Date</key><date>2015-08-06T01:31:24Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C7A55EFC87F62AC9</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Undrecurrent</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/01%20Undrecurrent.m4a</string>
+		</dict>
+		<key>20830</key>
+		<dict>
+			<key>Track ID</key><integer>20830</integer>
+			<key>Size</key><integer>22912511</integer>
+			<key>Total Time</key><integer>508800</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:02:43Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3576861714</integer>
+			<key>Play Date UTC</key><date>2017-05-06T00:41:54Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2015-07-14T09:47:35Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>22BA2089BE439F41</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Funk-Cosity</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/02%20Funk-Cosity.m4a</string>
+		</dict>
+		<key>20832</key>
+		<dict>
+			<key>Track ID</key><integer>20832</integer>
+			<key>Size</key><integer>13385411</integer>
+			<key>Total Time</key><integer>296480</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:05Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>11</integer>
+			<key>Play Date</key><integer>3554961410</integer>
+			<key>Play Date UTC</key><date>2016-08-25T13:16:50Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2016-08-25T13:16:59Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>BEBBF625B7DB97E5</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Lion's Den</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/03%20Lion's%20Den.m4a</string>
+		</dict>
+		<key>20834</key>
+		<dict>
+			<key>Track ID</key><integer>20834</integer>
+			<key>Size</key><integer>15107437</integer>
+			<key>Total Time</key><integer>368120</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:17Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3594915867</integer>
+			<key>Play Date UTC</key><date>2017-12-01T00:44:27Z</date>
+			<key>Skip Count</key><integer>8</integer>
+			<key>Skip Date</key><date>2017-09-06T11:35:46Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>387EB9F84CB95A63</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>The Pot's On</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Sort Name</key><string>Pot's On</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/04%20The%20Pot's%20On.m4a</string>
+		</dict>
+		<key>20836</key>
+		<dict>
+			<key>Track ID</key><integer>20836</integer>
+			<key>Size</key><integer>16100293</integer>
+			<key>Total Time</key><integer>382480</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:34Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>20</integer>
+			<key>Play Date</key><integer>3580737725</integer>
+			<key>Play Date UTC</key><date>2017-06-19T21:22:05Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2013-10-30T09:53:17Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2C328F5C71004204</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Groovin' The Blues</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/05%20Groovin'%20The%20Blues.m4a</string>
+		</dict>
+		<key>20838</key>
+		<dict>
+			<key>Track ID</key><integer>20838</integer>
+			<key>Size</key><integer>13946176</integer>
+			<key>Total Time</key><integer>332173</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:33Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:50Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>18</integer>
+			<key>Play Date</key><integer>3598381704</integer>
+			<key>Play Date UTC</key><date>2018-01-10T03:28:24Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2016-01-01T14:56:12Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D256C5A894B2C53C</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Ballade</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/06%20Ballade.m4a</string>
+		</dict>
         <key>9420</key>
         <dict>
             <key>Track ID</key>
@@ -3958,6 +4151,368 @@
 </dict>
 </plist>
 ";
+        }
+
+        public static string CreateTestLibraryMultipleAlbumsWithSameName() {
+            return @"<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE plist PUBLIC '-//Apple Computer//DTD PLIST 1.0//EN' 'http://www.apple.com/DTDs/PropertyList-1.0.dtd'>
+<plist version='1.0'>
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2012-09-22T12:34:44Z</date>
+	<key>Application Version</key><string>10.7</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/</string>
+	<key>Library Persistent ID</key><string>AF573AA70A9DD69E</string>
+	<key>Tracks</key>
+<key>19058</key>
+		<dict>
+			<key>Track ID</key><integer>19058</integer>
+			<key>Size</key><integer>13583756</integer>
+			<key>Total Time</key><integer>324133</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>1962</integer>
+			<key>Date Modified</key><date>2012-02-25T18:59:57Z</date>
+			<key>Date Added</key><date>2012-02-25T18:48:02Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>39</integer>
+			<key>Play Date</key><integer>3583348034</integer>
+			<key>Play Date UTC</key><date>2017-07-20T02:27:14Z</date>
+			<key>Skip Count</key><integer>10</integer>
+			<key>Skip Date</key><date>2017-12-05T11:12:25Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>FDC982DE14C7B242</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>My Funny Valentine</string>
+			<key>Artist</key><string>Bill Evans &#38; Jim Hall</string>
+			<key>Composer</key><string>Richard Rodgers/Lorenz Hart</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&#38;%20Jim%20Hall/Undercurrent/01%20My%20Funny%20Valentine.m4a</string>
+		</dict>
+		<key>19060</key>
+		<dict>
+			<key>Track ID</key><integer>19060</integer>
+			<key>Size</key><integer>11769540</integer>
+			<key>Total Time</key><integer>280026</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>1962</integer>
+			<key>Date Modified</key><date>2012-02-25T18:59:58Z</date>
+			<key>Date Added</key><date>2012-02-25T18:48:23Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>46</integer>
+			<key>Play Date</key><integer>3595034840</integer>
+			<key>Play Date UTC</key><date>2017-12-02T09:47:20Z</date>
+			<key>Skip Count</key><integer>9</integer>
+			<key>Skip Date</key><date>2018-01-17T00:54:49Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>FBE4DA0C06651EA8</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>I Hear A Rhapsody</string>
+			<key>Artist</key><string>Bill Evans &#38; Jim Hall</string>
+			<key>Composer</key><string>George Fragos/Jack Baker</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&#38;%20Jim%20Hall/Undercurrent/02%20I%20Hear%20A%20Rhapsody.m4a</string>
+		</dict>
+		<key>19062</key>
+		<dict>
+			<key>Track ID</key><integer>19062</integer>
+			<key>Size</key><integer>11550486</integer>
+			<key>Total Time</key><integer>274906</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>1962</integer>
+			<key>Date Modified</key><date>2012-02-25T18:59:58Z</date>
+			<key>Date Added</key><date>2012-02-25T18:48:36Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>45</integer>
+			<key>Play Date</key><integer>3609547617</integer>
+			<key>Play Date UTC</key><date>2018-05-19T08:06:57Z</date>
+			<key>Skip Count</key><integer>8</integer>
+			<key>Skip Date</key><date>2018-04-27T20:08:20Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C7B8EDD04F93004D</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Dream Gypsy</string>
+			<key>Artist</key><string>Bill Evans &#38; Jim Hall</string>
+			<key>Composer</key><string>Judith Veevers</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&#38;%20Jim%20Hall/Undercurrent/03%20Dream%20Gypsy.m4a</string>
+		</dict>
+		<key>19064</key>
+		<dict>
+			<key>Track ID</key><integer>19064</integer>
+			<key>Size</key><integer>13539034</integer>
+			<key>Total Time</key><integer>323733</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>1962</integer>
+			<key>Date Modified</key><date>2012-02-25T18:59:58Z</date>
+			<key>Date Added</key><date>2012-02-25T18:48:48Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>54</integer>
+			<key>Play Date</key><integer>3591759688</integer>
+			<key>Play Date UTC</key><date>2017-10-25T11:01:28Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2012-05-30T02:28:28Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6B8ABBF0C8A3C76B</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Romain</string>
+			<key>Artist</key><string>Bill Evans &#38; Jim Hall</string>
+			<key>Composer</key><string>Jim Hall</string>
+			<key>Album</key><string>Undercurrent</string>
+            <key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&#38;%20Jim%20Hall/Undercurrent/03%20Dream%20Gypsy.m4a</string>
+         </dict>
+<key>20828</key>
+		<dict>
+			<key>Track ID</key><integer>20828</integer>
+			<key>Size</key><integer>19901972</integer>
+			<key>Total Time</key><integer>440360</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-18T21:46:02Z</date>
+			<key>Date Added</key><date>2013-05-18T21:02:16Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3568904730</integer>
+			<key>Play Date UTC</key><date>2017-02-02T23:25:30Z</date>
+			<key>Skip Count</key><integer>5</integer>
+			<key>Skip Date</key><date>2015-08-06T01:31:24Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C7A55EFC87F62AC9</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Undrecurrent</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/01%20Undrecurrent.m4a</string>
+		</dict>
+		<key>20830</key>
+		<dict>
+			<key>Track ID</key><integer>20830</integer>
+			<key>Size</key><integer>22912511</integer>
+			<key>Total Time</key><integer>508800</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:02:43Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3576861714</integer>
+			<key>Play Date UTC</key><date>2017-05-06T00:41:54Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2015-07-14T09:47:35Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>22BA2089BE439F41</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Funk-Cosity</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/02%20Funk-Cosity.m4a</string>
+		</dict>
+		<key>20832</key>
+		<dict>
+			<key>Track ID</key><integer>20832</integer>
+			<key>Size</key><integer>13385411</integer>
+			<key>Total Time</key><integer>296480</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:05Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>11</integer>
+			<key>Play Date</key><integer>3554961410</integer>
+			<key>Play Date UTC</key><date>2016-08-25T13:16:50Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2016-08-25T13:16:59Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>BEBBF625B7DB97E5</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Lion's Den</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/03%20Lion's%20Den.m4a</string>
+		</dict>
+		<key>20834</key>
+		<dict>
+			<key>Track ID</key><integer>20834</integer>
+			<key>Size</key><integer>15107437</integer>
+			<key>Total Time</key><integer>368120</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:17Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>13</integer>
+			<key>Play Date</key><integer>3594915867</integer>
+			<key>Play Date UTC</key><date>2017-12-01T00:44:27Z</date>
+			<key>Skip Count</key><integer>8</integer>
+			<key>Skip Date</key><date>2017-09-06T11:35:46Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>387EB9F84CB95A63</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>The Pot's On</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Sort Name</key><string>Pot's On</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/04%20The%20Pot's%20On.m4a</string>
+		</dict>
+		<key>20836</key>
+		<dict>
+			<key>Track ID</key><integer>20836</integer>
+			<key>Size</key><integer>16100293</integer>
+			<key>Total Time</key><integer>382480</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:32Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:34Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>20</integer>
+			<key>Play Date</key><integer>3580737725</integer>
+			<key>Play Date UTC</key><date>2017-06-19T21:22:05Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2013-10-30T09:53:17Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2C328F5C71004204</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Groovin' The Blues</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/05%20Groovin'%20The%20Blues.m4a</string>
+		</dict>
+		<key>20838</key>
+		<dict>
+			<key>Track ID</key><integer>20838</integer>
+			<key>Size</key><integer>13946176</integer>
+			<key>Total Time</key><integer>332173</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>6</integer>
+			<key>Year</key><integer>1960</integer>
+			<key>Date Modified</key><date>2013-05-19T12:24:33Z</date>
+			<key>Date Added</key><date>2013-05-18T21:03:50Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>18</integer>
+			<key>Play Date</key><integer>3598381704</integer>
+			<key>Play Date UTC</key><date>2018-01-10T03:28:24Z</date>
+			<key>Skip Count</key><integer>4</integer>
+			<key>Skip Date</key><date>2016-01-01T14:56:12Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D256C5A894B2C53C</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Ballade</string>
+			<key>Artist</key><string>Kenny Drew</string>
+			<key>Composer</key><string>Kenny Drew</string>
+			<key>Album</key><string>Undercurrent</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Kenny%20Drew/Undercurrent/06%20Ballade.m4a</string>
+		</dict>
+    </dict>
+    <key>Playlists</key>
+    <array>
+		<dict>
+			<key>Master</key><true/>
+			<key>Playlist ID</key><integer>32434</integer>
+			<key>Playlist Persistent ID</key><string>AF573AA70A9DD69F</string>
+			<key>All Items</key><true/>
+			<key>Visible</key><false/>
+			<key>Name</key><string>Library</string>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>3302</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3304</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3306</integer>
+				</dict>
+            </array>
+		</dict>
+	</array>
+</plist>";
         }
     }
 }
