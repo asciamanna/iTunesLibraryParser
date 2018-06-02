@@ -154,13 +154,6 @@ namespace ITunesLibraryParserTests {
             Assert.That(result.IsCompilation, Is.True);
             Assert.That(result.Year, Is.EqualTo(1962));
             Assert.That(result.Tracks.Count(), Is.EqualTo(8));
-
-            foreach (var album in results) {
-                Console.WriteLine($"{album}");
-                foreach (var track in album.Tracks) {
-                    Console.WriteLine($"{track}");
-                }
-            }
         }
 
         [Test]
