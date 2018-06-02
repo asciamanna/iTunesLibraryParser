@@ -18,6 +18,9 @@ var library = new ITunesLibrary("iTunesLibrary.xml");
 var tracks = library.Tracks 
 // returns all tracks in the iTunes Library
 
+var albums = library.Albums
+// returns all albums in the iTunes Library
+
 var playlists = library.Playlists
 // returns all playlists in the iTunes Library
 ```
