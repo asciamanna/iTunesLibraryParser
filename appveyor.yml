@@ -15,7 +15,7 @@ environment:
     secure: Q4IyaxOG4nDYXjCelbf08+bGIos8E6inE5m4x47ghjdtbGZYVgbdDkn0QESq5CAU
 
 after_test:
-  - cmd:packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe" -targetargs:"/domain:single ITunesLibraryParserTests/bin/debug/ITunesLibraryParser.Tests.dll" -output:coverage.xml
+  - cmd:packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe" -targetargs:"/domain:single ITunesLibraryParserTests/bin/debug/ITunesLibraryParser.Tests.dll ITunesLibraryParser.EndToEndTests/bin/debug/ITunesLibraryParser.EndToEndTests.dll" -output:coverage.xml
 
 deploy:
 - provider: NuGet
