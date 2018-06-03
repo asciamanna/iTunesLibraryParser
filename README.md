@@ -24,8 +24,19 @@ var albums = library.Albums
 var playlists = library.Playlists
 // returns all playlists in the iTunes Library
 ```
+## Versioning
+iTunesLibaryParser will be maintained under the [Semantic Versioning guidelines](http://semver.org). Releases will follow this format:
+
+```
+<major>.<minor>.<build>
+```
+
+ * If a release breaks backward compatibility the major version will be bumped (resetting minor and build back to zero). 
+ * New features and updates without breaking backward compatibility will bump the minor version (resetting the build to zero)
+ * Bug fixes and small miscellaneous changes increase the build number
 
 ## Performance Testing
+
 14,500 tracks -> 800ms  
 2400 albums -> 1.4s  
 100 playlists -> 2.2s  
