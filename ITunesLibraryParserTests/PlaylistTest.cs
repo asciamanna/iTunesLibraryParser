@@ -1,9 +1,8 @@
 ﻿using System.Linq;
-using ITunesLibraryParser;
 using ITunesLibraryParserTests.TestObjects;
 using NUnit.Framework;
 
-namespace ITunesLibraryParserTests {
+namespace ITunesLibraryParser.Tests {
 
     [TestFixture]
     public class PlaylistTest {

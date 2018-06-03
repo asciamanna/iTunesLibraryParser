@@ -1,8 +1,7 @@
-﻿using ITunesLibraryParser;
-using ITunesLibraryParserTests.TestObjects;
+﻿using ITunesLibraryParserTests.TestObjects;
 using NUnit.Framework;
 
-namespace ITunesLibraryParserTests {
+namespace ITunesLibraryParser.Tests {
     [TestFixture]
     public class TrackTest {
         private Track subject;

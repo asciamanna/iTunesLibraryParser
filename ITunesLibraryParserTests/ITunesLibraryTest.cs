@@ -1,11 +1,10 @@
-﻿using ITunesLibraryParser;
+﻿using System;
+using System.Linq;
 using ITunesLibraryParserTests.TestObjects;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Linq;
 
-namespace ITunesLibraryParserTests {
+namespace ITunesLibraryParser.Tests {
     [TestFixture]
     public class ITunesLibraryTest {
 

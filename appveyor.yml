@@ -1,10 +1,22 @@
 version: 1.0.{build}
 image: Visual Studio 2017
+
+install: 
+  - nuget restore
+
 build:
   publish_nuget: true
   publish_nuget_symbols: true
   include_nuget_references: true
   verbosity: minimal
+
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: Q4IyaxOG4nDYXjCelbf08+bGIos8E6inE5m4x47ghjdtbGZYVgbdDkn0QESq5CAU
+
+after_test:
+  - cmd:packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe" -targetargs:"/domain:single ITunesLibraryParserTests/bin/debug/ITunesLibraryParser.Tests.dll" -output:coverage.xml
+
 deploy:
 - provider: NuGet
   api_key:
