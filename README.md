@@ -12,7 +12,7 @@ The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML. Given the 
 The nuget package is [available here](https://www.nuget.org/packages/iTunesLibraryParser/)
 
 ## Usage
-```
+```csharp
 var library = new ITunesLibrary("iTunesLibrary.xml");
 
 var tracks = library.Tracks 
