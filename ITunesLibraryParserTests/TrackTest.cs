@@ -59,5 +59,25 @@ namespace ITunesLibraryParser.Tests {
 
             Assert.That(result, Is.True);
         }
+
+        [Test]
+        public void GetHashCode_Returns_The_Same_HashCode_For_Equal_Tracks() {
+            var expectedHashCode = subject.Copy().GetHashCode();
+            
+            var result = subject.GetHashCode();
+
+            Assert.That(result, Is.EqualTo(expectedHashCode));
+        }
+
+        [Test]
+        public void GetHashCode_Returns_A_Different_HashCode_For_Tracks_Not_Equal() {
+            var other = subject.Copy();
+            other.AlbumArtist = "John Coltrane";
+            var expectedHashCode = other.GetHashCode();
+
+            var result = subject.GetHashCode();
+
+            Assert.That(result, Is.Not.EqualTo(expectedHashCode));
+        }
     }
 }

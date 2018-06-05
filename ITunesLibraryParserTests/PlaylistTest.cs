@@ -62,5 +62,25 @@ namespace ITunesLibraryParser.Tests {
 
             Assert.That(result, Is.True);
         }
+
+        [Test]
+        public void GetHashCode_Returns_The_Same_HashCode_For_Equal_Playlists() {
+            var expectedHashCode = subject.Copy().GetHashCode();
+
+            var result = subject.GetHashCode();
+
+            Assert.That(result, Is.EqualTo(expectedHashCode));
+        }
+
+        [Test]
+        public void GetHashCode_Returns_A_Different_HashCode_For_Playlists_Not_Equal() {
+            var other = subject.Copy();
+            other.Name = "Vocal Jazz";
+            var expectedHashCode = other.GetHashCode();
+
+            var result = subject.GetHashCode();
+
+            Assert.That(result, Is.Not.EqualTo(expectedHashCode));
+        }
     }
 }
