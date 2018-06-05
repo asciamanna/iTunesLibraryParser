@@ -1,9 +1,9 @@
 iTunesLibraryParser 
 ===================
 [![Build status](https://ci.appveyor.com/api/projects/status/tsebsc61mqylaejq?svg=true)](https://ci.appveyor.com/project/asciamanna/ituneslibraryparser)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f1e8648cc74b158fbbb09528fd9e2e)](https://app.codacy.com/app/asciamanna/iTunesLibraryParser?utm_source=github.com&utm_medium=referral&utm_content=asciamanna/iTunesLibraryParser&utm_campaign=badger)
+[![Coverage Status](https://coveralls.io/repos/github/asciamanna/iTunesLibraryParser/badge.svg?branch=master)](https://coveralls.io/github/asciamanna/iTunesLibraryParser?branch=master)
 [![NuGet version](https://img.shields.io/nuget/v/ITunesLibraryParser.svg)](https://www.nuget.org/packages/iTunesLibraryParser/)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f1e8648cc74b158fbbb09528fd9e2e)](https://app.codacy.com/app/asciamanna/iTunesLibraryParser?utm_source=github.com&utm_medium=referral&utm_content=asciamanna/iTunesLibraryParser&utm_campaign=badger)
 
 The iTunes Library Parser is implemented in C# utilizing LINQ-To-XML. Given the location of a iTunes Music Library XML file it parses the PropertyList format, which is defined by the Document Type Declaration (DTD) defined here [http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd). It supports parsing tracks, albums, and playlists.  More features will be added periodically.
 
