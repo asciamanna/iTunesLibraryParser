@@ -149,7 +149,7 @@ namespace ITunesLibraryParser.Tests {
             var result = results.First();
             Assert.That(results.Count(), Is.GreaterThan(0));
             Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
-            Assert.That(result.AlbumName, Is.EqualTo("Undercurrent"));
+            Assert.That(result.Name, Is.EqualTo("Undercurrent"));
             Assert.That(result.Genre, Is.EqualTo("Jazz"));
             Assert.That(result.IsCompilation, Is.False);
             Assert.That(result.Year, Is.EqualTo(1962));
@@ -162,7 +162,7 @@ namespace ITunesLibraryParser.Tests {
 
             var results = subject.Albums;
  
-            var result = results.First(r => r.AlbumName.StartsWith(AlbumWithMultipleArtists));
+            var result = results.First(r => r.Name.StartsWith(AlbumWithMultipleArtists));
             Assert.That(result.Artist, Is.EqualTo(result.Tracks.First().AlbumArtist));
         }
 
@@ -192,7 +192,7 @@ namespace ITunesLibraryParser.Tests {
 
             var result = subject.Albums;
 
-            Assert.That(result.Count(a => a.AlbumName == AlbumNameForMultipleAlbums), Is.EqualTo(2));
+            Assert.That(result.Count(a => a.Name == AlbumNameForMultipleAlbums), Is.EqualTo(2));
         }
     }
 }

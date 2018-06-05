@@ -5,14 +5,14 @@ using System.Linq;
 namespace ITunesLibraryParser {
     public class Album : IEquatable<Album> {
         public string Artist { get; set; }
-        public string AlbumName { get; set; }
+        public string Name { get; set; }
         public string Genre { get; set; }
         public int? Year { get; set; }
         public bool IsCompilation { get; set; }
         public IEnumerable<Track> Tracks { get; set; }
 
         public override string ToString() {
-            return $"{Artist} - {AlbumName} - {Tracks.Count()} tracks";
+            return $"{Artist} - {Name} - {Tracks.Count()} tracks";
         }
 
         public Album Copy() {
@@ -23,11 +23,11 @@ namespace ITunesLibraryParser {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return string.Equals(Artist, other.Artist) && 
-                   string.Equals(AlbumName, other.AlbumName) && 
+                   string.Equals(Name, other.Name) && 
                    string.Equals(Genre, other.Genre) && 
                    Year == other.Year && 
                    IsCompilation == other.IsCompilation && 
-                   Equals(Tracks, other.Tracks);
+                   Equals(Tracks.Count(), other.Tracks.Count());
         }
 
         public override bool Equals(object obj) {
@@ -40,7 +40,7 @@ namespace ITunesLibraryParser {
         public override int GetHashCode() {
             unchecked {
                 var hashCode = (Artist != null ? Artist.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (AlbumName != null ? AlbumName.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Genre != null ? Genre.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ Year.GetHashCode();
                 hashCode = (hashCode * 397) ^ IsCompilation.GetHashCode();

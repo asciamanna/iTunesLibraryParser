@@ -15,7 +15,7 @@ namespace ITunesLibraryParser.Tests {
         [Test]
         public void Album_ToString() {
             Assert.That(subject.ToString(), 
-                Is.EqualTo($"{subject.Artist} - {subject.AlbumName} - {subject.Tracks.Count()} tracks"));
+                Is.EqualTo($"{subject.Artist} - {subject.Name} - {subject.Tracks.Count()} tracks"));
         }
 
         [Test]
@@ -24,6 +24,41 @@ namespace ITunesLibraryParser.Tests {
 
             Assert.That(result, Is.EqualTo(subject));
             Assert.That(result, Is.Not.SameAs(subject));
+        }
+
+        [Test]
+        public void Equals_Returns_False_When_Null() {
+            var result = subject.Equals(null);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Equals_Returns_False_When_Not_Equal() {
+            var other = TestAlbum.Create();
+            other.Name = "New Album";
+
+            var result = subject.Equals(other);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Equals_Returns_False_When_Not_SameType() {
+            var other = TestPlaylist.Create();
+
+            var result = subject.Equals(other);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Equals_Returns_True_When_Equal() {
+            var other = TestAlbum.Create();
+
+            var result = subject.Equals(other);
+
+            Assert.That(result, Is.True);
         }
     }
 }

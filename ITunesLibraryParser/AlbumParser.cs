@@ -34,7 +34,7 @@ namespace ITunesLibraryParser {
 
         private static Album CreateAlbum(IEnumerable<Track> tracks) {
             return new Album {
-                AlbumName = tracks.First().Album,
+                Name = tracks.First().Album,
                 Genre = tracks.First().Genre,
                 Artist = GetArtistName(tracks),
                 Year = tracks.First().Year,

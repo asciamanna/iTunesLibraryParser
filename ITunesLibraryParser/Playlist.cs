@@ -17,7 +17,7 @@ namespace ITunesLibraryParser {
             if (ReferenceEquals(this, other)) return true;
             return PlaylistId == other.PlaylistId &&
                    string.Equals(Name, other.Name) &&
-                   Equals(Tracks, other.Tracks);
+                   Equals(Tracks.Count(), other.Tracks.Count());
         }
 
         public override bool Equals(object obj) {

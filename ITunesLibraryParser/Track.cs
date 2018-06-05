@@ -31,13 +31,16 @@ namespace ITunesLibraryParser {
         }
 
         public bool Equals(Track other) {
-            return TrackId == other.TrackId && string.Equals(Name, other.Name) && string.Equals(Artist, other.Artist) &&
-              string.Equals(AlbumArtist, other.AlbumArtist) && string.Equals(Composer, other.Composer) &&
-              string.Equals(Album, other.Album) && string.Equals(Genre, other.Genre) &&
-              string.Equals(Kind, other.Kind) && Size == other.Size && string.Equals(PlayingTime, other.PlayingTime) &&
-              TrackNumber == other.TrackNumber && Year == other.Year && DateModified.Equals(other.DateModified) &&
-              DateAdded.Equals(other.DateAdded) && BitRate == other.BitRate && SampleRate == other.SampleRate &&
-              PlayCount == other.PlayCount && PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation;
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return TrackId == other.TrackId && string.Equals(Name, other.Name) && 
+                   string.Equals(Artist, other.Artist) && string.Equals(AlbumArtist, other.AlbumArtist) 
+                   && string.Equals(Composer, other.Composer) && string.Equals(Album, other.Album) && 
+                   string.Equals(Genre, other.Genre) && string.Equals(Kind, other.Kind) && Size == other.Size && 
+                   string.Equals(PlayingTime, other.PlayingTime) && TrackNumber == other.TrackNumber && 
+                   Year == other.Year && DateModified.Equals(other.DateModified) && DateAdded.Equals(other.DateAdded) && 
+                   BitRate == other.BitRate && SampleRate == other.SampleRate && PlayCount == other.PlayCount && 
+                   PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation;
         }
 
         public override bool Equals(object obj) {
