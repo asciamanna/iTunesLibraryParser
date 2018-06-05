@@ -219,3 +219,7 @@ pip-log.txt
 
 #custom stuff for ListeningTo app
 user.config
+
+#custom for ITunesLibraryParser
+coverage.xml
+TestResult.xml
