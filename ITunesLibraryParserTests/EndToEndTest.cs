@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 
-namespace ITunesLibraryParser.EndToEndTests {
+namespace ITunesLibraryParser.Tests {
     [TestFixture]
     public class EndToEndTest {
         private readonly string fileLocation = Path.Combine(TestContext.CurrentContext.TestDirectory,

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser", "ITun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser.Tests", "ITunesLibraryParserTests\ITunesLibraryParser.Tests.csproj", "{A1761372-7310-49EB-ABA5-A609EC99F24B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser.EndToEndTests", "ITunesLibraryParser.EndToEndTests\ITunesLibraryParser.EndToEndTests.csproj", "{659BBED9-F903-47A1-B5B7-81FED9B54B65}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C235C059-97C9-437C-BDA0-0B014CFBAC45}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -28,10 +26,6 @@ Global
 		{A1761372-7310-49EB-ABA5-A609EC99F24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1761372-7310-49EB-ABA5-A609EC99F24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1761372-7310-49EB-ABA5-A609EC99F24B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{659BBED9-F903-47A1-B5B7-81FED9B54B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{659BBED9-F903-47A1-B5B7-81FED9B54B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{659BBED9-F903-47A1-B5B7-81FED9B54B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{659BBED9-F903-47A1-B5B7-81FED9B54B65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

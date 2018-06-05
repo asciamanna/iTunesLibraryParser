@@ -19,7 +19,7 @@ before_test:
    ps: Write-Host "Before Test Hooks here..."
    
 after_test:
-  - cmd: packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:path32 -filter:"+[ITunesLibraryParser*]* -[ITunesLibraryParser*Tests]*" -target:"packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe" -targetargs:"/domain:single ITunesLibraryParserTests/bin/debug/ITunesLibraryParser.Tests.dll ITunesLibraryParser.EndToEndTests/bin/debug/ITunesLibraryParser.EndToEndTests.dll" -output:coverage.xml
+  - cmd: packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:path32 -filter:"+[ITunesLibraryParser*]* -[ITunesLibraryParser*Tests]*" -target:"packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe" -targetargs:"/domain:single ITunesLibraryParserTests/bin/debug/ITunesLibraryParser.Tests.dll" -output:coverage.xml
   - cmd: packages\coveralls.io.1.4.2\tools\coveralls.net.exe --opencover coverage.xml -r %COVERALLS_REPO_TOKEN%
 
 deploy:
