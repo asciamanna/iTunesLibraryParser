@@ -46,15 +46,6 @@ namespace ITunesLibraryParser.Tests {
         }
 
         [Test]
-        public void Equals_Returns_False_When_Not_SameType() {
-            var other = TestAlbum.Create();
-
-            var result = subject.Equals(other);
-
-            Assert.That(result, Is.False);
-        }
-
-        [Test]
         public void Equals_Returns_True_When_Equal() {
             var other = TestPlaylist.Create();
 
@@ -66,6 +57,31 @@ namespace ITunesLibraryParser.Tests {
         [Test]
         public void Equals_Returns_True_When_Same_Reference() {
             var result = subject.Equals(subject);
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Object_Equals_Returns_False_When_Not_SameType() {
+            var other = TestAlbum.Create();
+
+            var result = subject.Equals(other);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Object_Equals_Returns_False_When_Null() {
+            var result = subject.Equals((object)null);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Object_Equals_Returns_True_When_Equal() {
+            var other = TestPlaylist.Create() as object;
+
+            var result = subject.Equals(other);
 
             Assert.That(result, Is.True);
         }
