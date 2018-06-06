@@ -62,7 +62,7 @@ namespace ITunesLibraryParser.Tests {
         }
 
         [Test]
-        public void Equals_Returns_True_When_ReferenceEquals_Is_True() {
+        public void Equals_Returns_True_When_Same_Reference() {
             var result = subject.Equals(subject);
 
             Assert.That(result, Is.True);
