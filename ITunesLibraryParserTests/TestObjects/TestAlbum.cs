@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using ITunesLibraryParser;
 
-namespace ITunesLibraryParserTests.TestObjects {
-    public class TestAlbum {
+namespace ITunesLibraryParser.Tests.TestObjects {
+    public static class TestAlbum {
         public static Album Create() {
             return new Album {
                 Name = "Bags Meets Wes",

@@ -1,7 +1,6 @@
 using System;
-using ITunesLibraryParser;
 
-namespace ITunesLibraryParserTests.TestObjects {
+namespace ITunesLibraryParser.Tests.TestObjects {
     public static class TestTrack {
         public static Track Create() {
             return new Track {

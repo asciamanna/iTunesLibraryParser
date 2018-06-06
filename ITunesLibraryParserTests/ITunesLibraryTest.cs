@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using ITunesLibraryParserTests.TestObjects;
+using ITunesLibraryParser.Tests.TestObjects;
 using Moq;
 using NUnit.Framework;
 

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ITunesLibraryParserTests.TestObjects;
+using ITunesLibraryParser.Tests.TestObjects;
 using NUnit.Framework;
 
 namespace ITunesLibraryParser.Tests {

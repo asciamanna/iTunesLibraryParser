@@ -1,4 +1,5 @@
-﻿namespace ITunesLibraryParserTests.TestObjects {
+﻿namespace ITunesLibraryParser.Tests.TestObjects {
+
     public static class TestLibraryData {
         public static string Create() {
             return @"<?xml version='1.0' encoding='UTF-8'?>

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using ITunesLibraryParser;
 
-namespace ITunesLibraryParserTests.TestObjects {
+namespace ITunesLibraryParser.Tests.TestObjects {
     public static class TestPlaylist {
         public static Playlist Create() {
             return new Playlist {
