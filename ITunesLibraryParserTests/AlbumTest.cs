@@ -85,6 +85,13 @@ namespace ITunesLibraryParser.Tests {
         }
 
         [Test]
+        public void Object_Equals_Returns_True_When_ReferenceEqual() {
+            var result = subject.Equals(subject as object);
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
         public void GetHashCode_Returns_The_Same_HashCode_For_Equal_Albums() {
             var expectedHashCode = subject.Copy().GetHashCode();
 
