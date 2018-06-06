@@ -46,8 +46,11 @@ iTunesLibaryParser will be maintained under the [Semantic Versioning guidelines]
 Additional features will be coming soon like filtering tracks by track criteria.
 
 ## Project Dependencies
+coveralls.io 1.4.2
 NUnit 3.10.1  
+NUnit.ConsoleRunner 3.8.0
 Moq 4.8.2
+OpenCover 4.6.519
 
 ## Contact
 **Anthony Sciamanna**
