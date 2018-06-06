@@ -27,7 +27,7 @@ namespace ITunesLibraryParser {
                    string.Equals(Genre, other.Genre) && 
                    Year == other.Year && 
                    IsCompilation == other.IsCompilation && 
-                   Equals(Tracks.Count(), other.Tracks.Count());
+                   Tracks.SequenceEqual(other.Tracks);
         }
 
         public override bool Equals(object obj) {
