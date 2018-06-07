@@ -10,7 +10,8 @@
     <projectUrl>https://github.com/asciamanna/iTunesLibraryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Parses an iTunes Library xml file (PropertyList format)</description>
-    <releaseNotes>Supports parsing Track and Playlist information</releaseNotes>
+    <releaseNotes>This package includes the latest version of the iTunesLibraryParserLibrary. It supports parsing tracks, 
+    albums, and playlists from an iTunes Library file. This release also fixes an issue with parsing the Album Artist field.</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>itunes xml plist PropertyList music</tags>
   </metadata>
