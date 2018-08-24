@@ -21,6 +21,7 @@ namespace ITunesLibraryParser {
         public int? PlayCount { get; set; }
         public DateTime? PlayDate { get; set; }
         public bool PartOfCompilation { get; set; }
+        public string Location { get; set; }
 
         public override string ToString() {
             return $"Artist: {Artist} - Track: {Name} - Album: {Album}";
@@ -40,7 +41,7 @@ namespace ITunesLibraryParser {
                    string.Equals(PlayingTime, other.PlayingTime) && TrackNumber == other.TrackNumber && 
                    Year == other.Year && DateModified.Equals(other.DateModified) && DateAdded.Equals(other.DateAdded) && 
                    BitRate == other.BitRate && SampleRate == other.SampleRate && PlayCount == other.PlayCount && 
-                   PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation;
+                   PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation && Location == other.Location;
         }
 
         public override bool Equals(object obj) {
@@ -71,6 +72,7 @@ namespace ITunesLibraryParser {
                 hashCode = (hashCode * 397) ^ PlayCount.GetHashCode();
                 hashCode = (hashCode * 397) ^ PlayDate.GetHashCode();
                 hashCode = (hashCode * 397) ^ PartOfCompilation.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Location != null ? Location.GetHashCode() : 0);
                 return hashCode;
             }
         }

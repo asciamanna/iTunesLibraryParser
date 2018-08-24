@@ -22,7 +22,8 @@ namespace ITunesLibraryParser.Tests.TestObjects {
                 SampleRate = 44100,
                 PlayCount = 55,
                 PlayDate = DateTime.Today,
-                PartOfCompilation = false
+                PartOfCompilation = false,
+                Location = "file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Wayne%20Shorter/Speak%20No%20Evil/01%20Witch%20Hunt.m4a"
             };
         }
     }
