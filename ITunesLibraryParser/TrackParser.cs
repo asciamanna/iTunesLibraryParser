@@ -35,6 +35,7 @@ namespace ITunesLibraryParser {
                 PlayDate = XElementParser.ParseNullableDateValue(trackElement, "Play Date UTC"),
                 PlayCount = XElementParser.ParseNullableIntValue(trackElement, "Play Count"),
                 PartOfCompilation = XElementParser.ParseBoolean(trackElement, "Compilation"),
+                Location = XElementParser.ParseStringValue(trackElement, "Location"),
             };
         }
     }

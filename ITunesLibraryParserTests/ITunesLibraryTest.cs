@@ -64,6 +64,7 @@ namespace ITunesLibraryParser.Tests {
             Assert.That(result.PlayCount, Is.EqualTo(11));
             Assert.That(result.PlayDate.Value.Date, Is.EqualTo(new DateTime(2012, 8, 15)));
             Assert.That(result.PartOfCompilation, Is.False);
+            Assert.That(result.Location, Is.EqualTo("file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&%20Jim%20Hall/Undercurrent/03%20Dream%20Gypsy.m4a"));
         }
 
         [Test]
