@@ -47,13 +47,13 @@ Additional features will be coming soon like filtering tracks by track criteria.
 
 ## Project Dependencies
 coveralls.io 1.4.2  
+Moq 4.8.2   
 NUnit 3.10.1   
 NUnit.ConsoleRunner 3.8.0   
-Moq 4.8.2   
 OpenCover 4.6.519   
 
 ## Contact
 **Anthony Sciamanna**
 <br/>
-**Web:** [http://www.anthonysciamanna.com](http://www.anthonysciamanna.com)  
-**Twitter:** [@asciamanna](http://www.twitter.com/asciamanna)
+**Web:** [https://www.anthonysciamanna.com](https://www.anthonysciamanna.com)  
+**Twitter:** [@asciamanna](https://www.twitter.com/asciamanna)
