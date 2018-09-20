@@ -36,6 +36,9 @@ namespace ITunesLibraryParser {
                 PlayCount = XElementParser.ParseNullableIntValue(trackElement, "Play Count"),
                 PartOfCompilation = XElementParser.ParseBoolean(trackElement, "Compilation"),
                 Location = XElementParser.ParseStringValue(trackElement, "Location"),
+                Rating = XElementParser.ParseNullableIntValue(trackElement, "Rating"),
+                AlbumRating = XElementParser.ParseNullableIntValue(trackElement, "Album Rating"),
+                AlbumRatingComputed = XElementParser.ParseBoolean(trackElement, "Album Rating Computed")
             };
         }
     }
