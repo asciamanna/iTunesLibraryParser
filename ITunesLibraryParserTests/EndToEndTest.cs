@@ -22,6 +22,10 @@ namespace ITunesLibraryParser.Tests {
             Assert.That(result.TrackId, Is.EqualTo(17714));
             Assert.That(result.Name, Is.EqualTo("Dream Gypsy"));
             Assert.That(result.Artist, Is.EqualTo("Bill Evans & Jim Hall"));
+            Assert.That(result.Rating, Is.EqualTo(80));
+            Assert.That(result.AlbumRating, Is.EqualTo(60));
+            Assert.True(result.AlbumRatingComputed);
         }
     }
 }
+

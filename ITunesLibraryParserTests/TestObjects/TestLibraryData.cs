@@ -47,6 +47,9 @@
 			<key>Location</key><string>file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&#38;%20Jim%20Hall/Undercurrent/03%20Dream%20Gypsy.m4a</string>
 			<key>File Folder Count</key><integer>4</integer>
 			<key>Library Folder Count</key><integer>1</integer>
+			<key>Rating</key><integer>80</integer>
+		  	<key>Album Rating</key><integer>60</integer>
+		  	<key>Album Rating Computed</key><true/>
 		</dict>
 		<key>17716</key>
 		<dict>
