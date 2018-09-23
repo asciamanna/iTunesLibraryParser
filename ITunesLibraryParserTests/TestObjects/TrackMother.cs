@@ -23,7 +23,10 @@ namespace ITunesLibraryParser.Tests.TestObjects {
                 PlayCount = 55,
                 PlayDate = DateTime.Today,
                 PartOfCompilation = false,
-                Location = "file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Wayne%20Shorter/Speak%20No%20Evil/01%20Witch%20Hunt.m4a"
+                Location = "file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Wayne%20Shorter/Speak%20No%20Evil/01%20Witch%20Hunt.m4a",
+                Rating = 50,
+                AlbumRatingComputed = true,
+                AlbumRating = 60
             };
         }
     }
