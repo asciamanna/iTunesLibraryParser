@@ -191,8 +191,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Albums_Groups_Tracks_From_Different_Albums_With_Same_Name() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath))
-                .Returns(TestLibraryData.CreateXml());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Albums;
 

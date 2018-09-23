@@ -8,7 +8,7 @@ namespace ITunesLibraryParser.Tests {
 
         [SetUp]
         public void Setup() {
-            subject = TestTrack.Create();
+            subject = TrackMother.Create();
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Equals_Returns_False_When_Not_Equal() {
-            var other = TestTrack.Create();
+            var other = TrackMother.Create();
             other.Name = "Maiden Voyage";
 
             var result = subject.Equals(other);
@@ -44,7 +44,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Equals_Returns_True_When_Equal() {
-            var other = TestTrack.Create();
+            var other = TrackMother.Create();
 
             var result = subject.Equals(other);
 
@@ -60,7 +60,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Object_Equals_Returns_False_When_Not_SameType() {
-            var other = TestAlbum.Create();
+            var other = AlbumMother.Create();
 
             var result = subject.Equals(other);
 
@@ -76,7 +76,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Object_Equals_Returns_True_When_Equal() {
-            var other = TestTrack.Create() as object;
+            var other = TrackMother.Create() as object;
 
             var result = subject.Equals(other);
 

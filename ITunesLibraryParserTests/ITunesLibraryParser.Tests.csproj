@@ -67,10 +67,10 @@
     <Compile Include="ITunesLibraryTest.cs" />
     <Compile Include="PlaylistTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestObjects\TestAlbum.cs" />
+    <Compile Include="TestObjects\AlbumMother.cs" />
     <Compile Include="TestObjects\TestLibraryData.cs" />
-    <Compile Include="TestObjects\TestPlaylist.cs" />
-    <Compile Include="TestObjects\TestTrack.cs" />
+    <Compile Include="TestObjects\PlaylistMother.cs" />
+    <Compile Include="TestObjects\TrackMother.cs" />
     <Compile Include="TrackTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 using System;
 
 namespace ITunesLibraryParser.Tests.TestObjects {
-    public static class TestTrack {
+    public static class TrackMother {
         public static Track Create() {
             return new Track {
                 TrackId = 456,
