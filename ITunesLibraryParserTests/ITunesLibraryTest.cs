@@ -23,7 +23,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Parses_All_Tracks_From_Library() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks;
 
@@ -32,7 +32,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Only_Parses_File_Once_For_ITunesLibrary_Lifetime() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Tracks;
             results = subject.Tracks;
@@ -43,7 +43,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Parses_Fields_On_Track() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks.First();
 
@@ -72,7 +72,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Parses_AlbumArtist_Node_If_Present() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Tracks;
 
@@ -81,7 +81,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Populates_Null_Values_For_Nonexistent_Elements() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks.First();
 
@@ -90,14 +90,14 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Sets_Boolean_Properties_To_True_For_Existing_Boolean_Nodes() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             Assert.That(subject.Tracks.Count(t => t.PartOfCompilation), Is.EqualTo(1));
         }
 
         [Test]
         public void Tracks_Converts_Milliseconds_TotalTime_To_String_Playing_Time_Minutes_And_Seconds() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks.First();
 
@@ -106,7 +106,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Handles_Missing_Size_Values_In_Library() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks.First(t => t.Name == SongWithBadData);
 
@@ -115,7 +115,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Tracks_Handles_Missing_TotalTime_Values_In_Library() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var result = subject.Tracks.First(t => t.Name == SongWithBadData);
 
@@ -124,7 +124,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Playlists_Parses_And_Returns_All_Playlists() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Playlists;
 
@@ -133,7 +133,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Playlists_Adds_Each_Track_To_Playlist() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Playlists;
 
@@ -146,7 +146,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Albums_Groups_Tracks_Into_Albums_From_Library() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Albums;
 
@@ -162,7 +162,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Albums_Uses_AlbumArtist_For_Artist_When_It_Exists() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Albums;
  
@@ -172,7 +172,7 @@ namespace ITunesLibraryParser.Tests {
 
         [Test]
         public void Albums_Uses_VariousArtists_As_Artist_When_Compilation_And_No_AlbumArtist_Defined() {
-            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.Create());
+            fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath)).Returns(TestLibraryData.CreateXml());
 
             var results = subject.Albums;
 
@@ -182,7 +182,7 @@ namespace ITunesLibraryParser.Tests {
         [Test]
         public void Albums_Groups_Tracks_With_Different_Artists_From_Same_Album() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath))
-                .Returns(TestLibraryData.Create());
+                .Returns(TestLibraryData.CreateXml());
 
             var results = subject.Albums;
            
@@ -192,7 +192,7 @@ namespace ITunesLibraryParser.Tests {
         [Test]
         public void Albums_Groups_Tracks_From_Different_Albums_With_Same_Name() {
             fileSystem.Setup(fs => fs.ReadTextFromFile(Filepath))
-                .Returns(TestLibraryData.Create());
+                .Returns(TestLibraryData.CreateXml());
 
             var result = subject.Albums;
 
