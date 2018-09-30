@@ -55,5 +55,5 @@ OpenCover 4.6.519
 ## Contact
 **Anthony Sciamanna**
 <br/>
-**Web:** [https://www.anthonysciamanna.com](https://www.anthonysciamanna.com)  
+**Web:** [https://anthonysciamanna.com](https://anthonysciamanna.com)  
 **Twitter:** [@asciamanna](https://www.twitter.com/asciamanna)
