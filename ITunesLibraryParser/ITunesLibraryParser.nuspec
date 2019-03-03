@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/asciamanna/iTunesLibraryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Parses an iTunes Library XML file (PropertyList format)</description>
-    <releaseNotes>This package includes the latest version of the iTunesLibraryParserLibrary. It supports parsing tracks, albums, and playlists from an iTunes Library XML file in the PropertyList format. This release adds the parsing of track rating fields.</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>This package includes the latest version of the iTunesLibraryParser. It supports parsing tracks, albums, and playlists from an iTunes Library XML file in the PropertyList format. This release adds the parsing of the Persistent ID field.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
     <tags>itunes xml plist PropertyList music</tags>
   </metadata>
 </package>
