@@ -38,7 +38,8 @@ namespace ITunesLibraryParser {
                 Location = XElementParser.ParseStringValue(trackElement, "Location"),
                 Rating = XElementParser.ParseNullableIntValue(trackElement, "Rating"),
                 AlbumRating = XElementParser.ParseNullableIntValue(trackElement, "Album Rating"),
-                AlbumRatingComputed = XElementParser.ParseBoolean(trackElement, "Album Rating Computed")
+                AlbumRatingComputed = XElementParser.ParseBoolean(trackElement, "Album Rating Computed"),
+                PersistentId = XElementParser.ParseStringValue(trackElement, "Persistent ID")
             };
         }
     }

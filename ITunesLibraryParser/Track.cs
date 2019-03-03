@@ -25,6 +25,7 @@ namespace ITunesLibraryParser {
         public int? Rating { get; set; }
         public int? AlbumRating { get; set; }
         public bool AlbumRatingComputed { get; set; }
+        public string PersistentId { get; set; }
 
         public override string ToString() {
             return $"Artist: {Artist} - Track: {Name} - Album: {Album}";
@@ -45,7 +46,8 @@ namespace ITunesLibraryParser {
                    Year == other.Year && DateModified.Equals(other.DateModified) && DateAdded.Equals(other.DateAdded) && 
                    BitRate == other.BitRate && SampleRate == other.SampleRate && PlayCount == other.PlayCount && 
                    PlayDate.Equals(other.PlayDate) && PartOfCompilation == other.PartOfCompilation && Location == other.Location &&
-                   Rating == other.Rating && AlbumRating == other.AlbumRating && AlbumRatingComputed == other.AlbumRatingComputed;
+                   Rating == other.Rating && AlbumRating == other.AlbumRating && AlbumRatingComputed == other.AlbumRatingComputed &&
+                   PersistentId == other.PersistentId;
         }
 
         public override bool Equals(object obj) {
@@ -80,6 +82,7 @@ namespace ITunesLibraryParser {
                 hashCode = (hashCode * 397) ^ Rating.GetHashCode();
                 hashCode = (hashCode * 397) ^ AlbumRating.GetHashCode();
                 hashCode = (hashCode * 397) ^ AlbumRatingComputed.GetHashCode();
+                hashCode = (hashCode * 397) ^ (PersistentId != null ? PersistentId.GetHashCode(): 0);
                 return hashCode;
             }
         }

@@ -68,6 +68,7 @@ namespace ITunesLibraryParser.Tests {
             Assert.That(result.AlbumRating, Is.EqualTo(60));
             Assert.That(result.AlbumRatingComputed, Is.True);
             Assert.That(result.Location, Is.EqualTo("file://localhost/C:/Users/anthony/Music/iTunes/iTunes%20Music/Bill%20Evans%20&%20Jim%20Hall/Undercurrent/03%20Dream%20Gypsy.m4a"));
+            Assert.That(result.PersistentId, Is.EqualTo("C7B8EDD04F93004D"));
         }
 
         [Test]
