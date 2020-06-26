@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser", "ITunesLibraryParser\ITunesLibraryParser.csproj", "{B251EEE4-5448-4F54-9755-86EB79DA9419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITunesLibraryParser", "ITunesLibraryParser\ITunesLibraryParser.csproj", "{B251EEE4-5448-4F54-9755-86EB79DA9419}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITunesLibraryParser.Tests", "ITunesLibraryParserTests\ITunesLibraryParser.Tests.csproj", "{A1761372-7310-49EB-ABA5-A609EC99F24B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITunesLibraryParser.Tests", "ITunesLibraryParserTests\ITunesLibraryParser.Tests.csproj", "{A1761372-7310-49EB-ABA5-A609EC99F24B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C235C059-97C9-437C-BDA0-0B014CFBAC45}"
 	ProjectSection(SolutionItems) = preProject
@@ -29,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F84B24E4-6B77-4F6F-96C9-D39616D335D2}
 	EndGlobalSection
 EndGlobal
